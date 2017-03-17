@@ -87,15 +87,19 @@
 
 
 
-<meta name="description" content="do more,talk less.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://xunhe.github.io/index.html">
+<meta name="description" content="ES6笔记— const和let1.简介ECMAScript是javascript语言的下一代标准，也称作ES2015
+2.let2.1基本用法let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效123456&amp;#123;    let a = 1;    var b = 1;&amp;#125;b //1a //ReferenceError: a is not">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6-- let和const命令">
+<meta property="og:url" content="https://xunhe.github.io/2017/03/17/ES6--let和const命令/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="do more,talk less.">
+<meta property="og:description" content="ES6笔记— const和let1.简介ECMAScript是javascript语言的下一代标准，也称作ES2015
+2.let2.1基本用法let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效123456&amp;#123;    let a = 1;    var b = 1;&amp;#125;b //1a //ReferenceError: a is not">
+<meta property="og:updated_time" content="2017-03-17T08:36:30.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="do more,talk less.">
+<meta name="twitter:title" content="ES6-- let和const命令">
+<meta name="twitter:description" content="ES6笔记— const和let1.简介ECMAScript是javascript语言的下一代标准，也称作ES2015
+2.let2.1基本用法let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效123456&amp;#123;    let a = 1;    var b = 1;&amp;#125;b //1a //ReferenceError: a is not">
 
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://xunhe.github.io/"/>
+  <link rel="canonical" href="https://xunhe.github.io/2017/03/17/ES6--let和const命令/"/>
 
 
 
 
 
-  <title> Blog </title>
+  <title> ES6-- let和const命令 | Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -154,9 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -271,10 +273,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/03/17/ES6--let和const命令/" itemprop="url">
-                  ES6-- let和const命令
-                </a>
+                ES6-- let和const命令
               
             
           </h1>
@@ -325,9 +324,7 @@
       
 
       
-        
-          
-            <h2 id="ES6笔记—-const和let"><a href="#ES6笔记—-const和let" class="headerlink" title="ES6笔记— const和let"></a>ES6笔记— const和let</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
+        <h2 id="ES6笔记—-const和let"><a href="#ES6笔记—-const和let" class="headerlink" title="ES6笔记— const和let"></a>ES6笔记— const和let</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
 <h3 id="2-let"><a href="#2-let" class="headerlink" title="2.let"></a>2.let</h3><h4 id="2-1基本用法"><a href="#2-1基本用法" class="headerlink" title="2.1基本用法"></a>2.1基本用法</h4><p>let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let a = 1;</div><div class="line">    var b = 1;</div><div class="line">&#125;</div><div class="line">b //1</div><div class="line">a //ReferenceError: a is not defined.</div></pre></td></tr></table></figure></p>
 <p>在for循环中，可以使用let来定义变量，防止变量名冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for( let i = 0; i &lt; 10; i++) &#123;&#125;;</div><div class="line">console.log(i); //ReferenceError: i is not defined.</div></pre></td></tr></table></figure></p>
 <p>计数器i只在for循环内有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (let i = 0; i &lt; 10; i++) &#123;</div><div class="line">  a[i] = function () &#123;</div><div class="line">    console.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[6](); // 6</div></pre></td></tr></table></figure></p>
@@ -366,16 +363,20 @@
 <li>不管是严格模式，还是普通模式，new Function(‘return this’)()，总是会返回全局对象。</li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -384,274 +385,38 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/babel编译es6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bunny">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/15/babel编译es6/" rel="next" title="Babel编译ES6">
+                <i class="fa fa-chevron-left"></i> Babel编译ES6
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2017/03/15/babel编译es6/" itemprop="url">
-                  Babel编译ES6
-                </a>
-              
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-15T00:24:54+08:00">
-                2017-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="Babel编译ES6"><a href="#Babel编译ES6" class="headerlink" title="Babel编译ES6"></a>Babel编译ES6</h2><p>Babel是一个ES6转码器，可以将ES6转为ES5代码，从而在现有环境执行，编译步骤如下：</p>
-<h3 id="1-安装babel-cli"><a href="#1-安装babel-cli" class="headerlink" title="1.安装babel-cli"></a>1.安装babel-cli</h3><p>Babel提供babel-cli工具，用于命令行转码,全局下安装babel-cli<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-cli -g</div></pre></td></tr></table></figure></p>
-<h3 id="2-配置文件-babelrc"><a href="#2-配置文件-babelrc" class="headerlink" title="2.配置文件.babelrc"></a>2.配置文件.babelrc</h3><p>babel的配置文件是.babelrc,存放在项目的根目录下，用来设置转码规则和插件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;presets&quot;:[],</div><div class="line">    &quot;plugins&quot;:[]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>presets</code>用来设定转码规则，常见转码规则如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># ES5转码规则</div><div class="line">npm install babel-preset-es2015 --save-dev</div><div class="line"></div><div class="line"># react转码规则</div><div class="line">npm install babel-preset-react --save-dev</div></pre></td></tr></table></figure></p>
-<p>然后将这些规则加入.babelrc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   &quot;presets&quot;:[</div><div class="line">     &quot;es2015&quot;,</div><div class="line">     &quot;react&quot;</div><div class="line">   ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-在命令行中使用babel"><a href="#3-在命令行中使用babel" class="headerlink" title="3.在命令行中使用babel"></a>3.在命令行中使用babel</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 转码结果输出到标准输出</div><div class="line">babel example.js</div><div class="line"></div><div class="line"># 将转码结果写入另一个文件,使用 -o或者--out-file指定输出文件（转译文件到文件）</div><div class="line">babel example-es6.js -o example-es5.js</div><div class="line"># 或者</div><div class="line">babel example-es6.js --out-file example-es5.js</div><div class="line"></div><div class="line"># 整个目录转码（转译目录到目录）</div><div class="line"># --out-dir 或者 -d参数指定输出目录</div><div class="line">babel src --out-dir lib</div><div class="line"># 或者</div><div class="line">babel src -d lib</div><div class="line"></div><div class="line"># 监听文件变化</div><div class="line">babel -w src -d dist</div></pre></td></tr></table></figure>
-<p>上述代码是在全局环境下，进行babel转码。若要在当前项目中使用需要执行下面的命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm init -y</div><div class="line">npm install --save-dev babel-cli</div></pre></td></tr></table></figure>
-<p>然后，配置package.json文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  // ...</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;babel-cli&quot;: &quot;^6.0.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;build&quot;: &quot;babel src -d lib&quot;</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>转码的时候，就执行下面的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/01/16/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bunny">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/16/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T23:41:02+08:00">
-                2017-01-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
           
           </div>
@@ -659,6 +424,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -678,8 +447,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -723,6 +501,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6笔记—-const和let"><span class="nav-number">1.</span> <span class="nav-text">ES6笔记— const和let</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-let"><span class="nav-number">1.2.</span> <span class="nav-text">2.let</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1基本用法"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2不存在变量提升"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2不存在变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3不允许重复声明"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3不允许重复声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-块级作用域"><span class="nav-number">1.3.</span> <span class="nav-text">3.块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-ES5中的作用域"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 ES5中的作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-ES6中的块级作用域"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 ES6中的块级作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-块级作用域与函数声明"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 块级作用域与函数声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-const命令"><span class="nav-number">1.4.</span> <span class="nav-text">4.const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-基本用法"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-const本质"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 const本质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-顶层对象"><span class="nav-number">1.5.</span> <span class="nav-text">5.顶层对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-global对象"><span class="nav-number">1.6.</span> <span class="nav-text">6.global对象</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -828,6 +622,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
