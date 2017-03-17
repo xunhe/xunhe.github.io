@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="const,let,ES6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.简介ECMAScript是javascript语言的下一代标准，也称作ES2015
+2.let2.1基本用法let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6笔记--- const和let">
+<meta property="og:url" content="https://xunhe.github.io/2017/03/15/ES6--let和const命令/index.html">
+<meta property="og:site_name" content="WebNote">
+<meta property="og:description" content="1.简介ECMAScript是javascript语言的下一代标准，也称作ES2015
+2.let2.1基本用法let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效">
+<meta property="og:updated_time" content="2017-03-17T10:31:14.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6笔记--- const和let">
+<meta name="twitter:description" content="1.简介ECMAScript是javascript语言的下一代标准，也称作ES2015
+2.let2.1基本用法let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xunhe.github.io/2017/03/15/ES6--let和const命令/"/>
+
+
+
+
+
+  <title> ES6笔记--- const和let | WebNote </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WebNote</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/ES6--let和const命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bunny">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WebNote">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6笔记--- const和let
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:47:01+08:00">
+                2017-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/15/ES6--let和const命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/ES6--let和const命令/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
+<h3 id="2-let"><a href="#2-let" class="headerlink" title="2.let"></a>2.let</h3><h4 id="2-1基本用法"><a href="#2-1基本用法" class="headerlink" title="2.1基本用法"></a>2.1基本用法</h4><p>let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let a = 1;</div><div class="line">    var b = 1;</div><div class="line">&#125;</div><div class="line">b //1</div><div class="line">a //ReferenceError: a is not defined.</div></pre></td></tr></table></figure></p>
+<p>在for循环中，可以使用let来定义变量，防止变量名冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for( let i = 0; i &lt; 10; i++) &#123;&#125;;</div><div class="line">console.log(i); //ReferenceError: i is not defined.</div></pre></td></tr></table></figure></p>
+<p>计数器i只在for循环内有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (let i = 0; i &lt; 10; i++) &#123;</div><div class="line">  a[i] = function () &#123;</div><div class="line">    console.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[6](); // 6</div></pre></td></tr></table></figure></p>
+<p>在上述代码中，i是let声明的，当前的i只在本轮循环内有效，所以每次的i都是一个新变量，所以最后输出的结果是6，但是如果换成var的话，var声明的变量在全局作用域内都有效，所以输出的值是10<br>若不使用es6,可以使用自定义属性或者闭包来实现上述功能</p>
+<h4 id="2-2不存在变量提升"><a href="#2-2不存在变量提升" class="headerlink" title="2.2不存在变量提升"></a>2.2不存在变量提升</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// var 的情况</div><div class="line">console.log(foo); // 输出undefined</div><div class="line">var foo = 2;</div><div class="line"></div><div class="line">// let 的情况</div><div class="line">console.log(bar); // 报错ReferenceError</div><div class="line">let bar = 2;</div></pre></td></tr></table></figure>
+<p>上述代码变量foo用var进行声明，存在变量提升，就是预解释，发生在代码执行之前，也就是说代码执行之前，foo已经存在了，而变量bar用let声明，不存在变量提升，在代码从上向下执行的时候bar是不存在的，所以会报错</p>
+<h4 id="2-3不允许重复声明"><a href="#2-3不允许重复声明" class="headerlink" title="2.3不允许重复声明"></a>2.3不允许重复声明</h4><p>let不允许在相同的作用域内，重复声明同一个变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 报错</div><div class="line">function () &#123;</div><div class="line">  let a = 10;</div><div class="line">  var a = 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 报错</div><div class="line">function () &#123;</div><div class="line">  let a = 10;</div><div class="line">  let a = 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同理，不能在函数内部重新声明参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function(arg)&#123;</div><div class="line">    let arg;//报错</div><div class="line">&#125;</div><div class="line">function (arg)&#123;</div><div class="line">    &#123;</div><div class="line">        let arg;//不报错</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-块级作用域"><a href="#3-块级作用域" class="headerlink" title="3.块级作用域"></a>3.块级作用域</h3><h4 id="3-1-ES5中的作用域"><a href="#3-1-ES5中的作用域" class="headerlink" title="3.1 ES5中的作用域"></a>3.1 ES5中的作用域</h4><p>ES5中只有全局作用域和函数作用域，没有块级作用域，所以会带来很多问题</p>
+<p>1)内层变量覆盖外层变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date();</div><div class="line"></div><div class="line">function f() &#123;</div><div class="line">  console.log(tmp);</div><div class="line">  if (false) &#123;</div><div class="line">    var tmp = &apos;hello world&apos;;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">f(); // undefined</div></pre></td></tr></table></figure></p>
+<p>因为var 有变量提升，函数执行时候，内层web覆盖外层web，所以输出undefined</p>
+<p>2)用来计数的循环变量泄漏为全局变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var s = &apos;hello&apos;;</div><div class="line"></div><div class="line">for (var i = 0; i &lt; s.length; i++) &#123;</div><div class="line">  console.log(s[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(i); // 5</div></pre></td></tr></table></figure></p>
+<p>因为var 有变量提升，函数执行时候，内层web覆盖外层web，所以输出undefined</p>
+<h4 id="3-2-ES6中的块级作用域"><a href="#3-2-ES6中的块级作用域" class="headerlink" title="3.2 ES6中的块级作用域"></a>3.2 ES6中的块级作用域</h4><p>let为javascript增加了块级作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">    let n=5;</div><div class="line">    if(true)&#123;</div><div class="line">        let n=10;</div><div class="line">    &#125;</div><div class="line">    console.log(n);//5</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的代码打印出5，这表示外层代码块不受内部代码块的影响，如果使用var定义变量，最后输出的值就是10<br>ES6允许块级作用域的任意嵌套<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;&#123;&#123;&#123;let insane = &quot;hello world&quot;&#125;&#125;&#125;&#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码使用了一个五层的块级作用域，外层作用于无法苏区内层作用于的变量<br>块级作用域的出现，使得内层作用域可以定义外层作用域的同名变量，使得获得广泛使用的立即执行函数表达式(自执行函数)(IIFE)不再必要了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//IIFE写法</div><div class="line">(function()&#123;</div><div class="line">    var tmp=...;</div><div class="line">    ...</div><div class="line">&#125;)();</div><div class="line">//块级作用域写法</div><div class="line">&#123;</div><div class="line">    let tmp = ...;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="3-3-块级作用域与函数声明"><a href="#3-3-块级作用域与函数声明" class="headerlink" title="3.3 块级作用域与函数声明"></a>3.3 块级作用域与函数声明</h4><p>ES5中，函数只能在顶层作用域和函数作用于中声明，不能在块级作用域中声明,以下都是非法的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//1</div><div class="line">if(true)&#123;</div><div class="line">    function f()&#123;&#125;</div><div class="line">&#125;</div><div class="line">//2</div><div class="line">try&#123;</div><div class="line">    function f()&#123;&#125;</div><div class="line">&#125;cache(e)&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>ES6中引入了块级作用域，明确允许块级作用域中声明函数</p>
+<h3 id="4-const命令"><a href="#4-const命令" class="headerlink" title="4.const命令"></a>4.const命令</h3><h4 id="4-1-基本用法"><a href="#4-1-基本用法" class="headerlink" title="4.1 基本用法"></a>4.1 基本用法</h4><p>const声明一个只读的常量，一旦声明，常量的值就不能改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const PI = 3.1415;</div><div class="line">PI //3.1415</div><div class="line">PI = 3;</div><div class="line">//Type Error:Assignment to constant variable</div></pre></td></tr></table></figure></p>
+<p>上面的代码表明改变常量的值会报错<br>const声明的变量不得改变值，这意味着一旦声明常量，就必须立即初始化，不能留到以后赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const foo;</div><div class="line">// SyntaxError: Missing initializer in const declaration</div></pre></td></tr></table></figure></p>
+<p>上面的代码表示，对于const来说，至生命不赋值就会报错<br>const的作用域和let命令相同：只在声明所在的块级作用域内有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if(true)&#123;</div><div class="line">    const MAX=5;</div><div class="line">&#125;</div><div class="line">MAX //Uncaught ReferenceError: MAX is not defined</div></pre></td></tr></table></figure></p>
+<h4 id="4-2-const本质"><a href="#4-2-const本质" class="headerlink" title="4.2 const本质"></a>4.2 const本质</h4><p>const实际上保证的不是变量的值不可改动，而是变量指向的那个内存地址不得改动，对于简单类型的数据，值就保存在变量指向的那个内存地址，因此等同于常量；<br>但对于复合类型的数据，变量指向的内存地址，保存的是一个指针，const只能保证这个指针是固定的，至于它指向的数据结构是不是可变的就完全不能控制了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const foo = &#123;&#125;;</div><div class="line"></div><div class="line">// 为 foo 添加一个属性，可以成功</div><div class="line">foo.prop = 123;</div><div class="line">foo.prop // 123</div><div class="line"></div><div class="line">// 将 foo 指向另一个对象，就会报错</div><div class="line">foo = &#123;&#125;; // TypeError: &quot;foo&quot; is read-only</div></pre></td></tr></table></figure></p>
+<p>上面代码中，常量foo存储的是一个地址，这个地址指向一个对象，不可变得只是这个地址，不能把foo指向另一个地址，但是对象本身是可变的<br><strong>ES6声明变量的方法</strong><br>ES5 只有两种声明变量的方法：var命令和function命令。ES6除了添加let和const命令，后面章节还会提到，另外两种声明变量的方法：import命令和class命令。所以，ES6 一共有6种声明变量的方法。</p>
+<h3 id="5-顶层对象"><a href="#5-顶层对象" class="headerlink" title="5.顶层对象"></a>5.顶层对象</h3><p>顶层对象，在浏览器环境指的是window对象，在Node指的是global对象，ES5之中，顶层对象的属性和全局变量是等价的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">window.a = 1;</div><div class="line">a // 1</div><div class="line"></div><div class="line">a = 2;</div><div class="line">window.a // 2</div></pre></td></tr></table></figure></p>
+<p>上面代码中，顶层对象的属性赋值与全局变量的赋值，是同一件事。<br>ES6中，一方面规定，为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">// 如果在Node的REPL环境，可以写成global.a</div><div class="line">// 或者采用通用方法，写成this.a</div><div class="line">window.a // 1</div><div class="line"></div><div class="line">let b = 1;</div><div class="line">window.b // undefined</div></pre></td></tr></table></figure></p>
+<h3 id="6-global对象"><a href="#6-global对象" class="headerlink" title="6.global对象"></a>6.global对象</h3><p>ES5的顶层对象，在各种实现里是不统一的</p>
+<ul>
+<li>浏览器里面，顶层对象是window，但Node和Web Worker没有window</li>
+<li>浏览器和Web Worker里面，self也指向顶层对象，但是Node没有self</li>
+<li>Node里面，顶层对象是globak，但其他环境都不支持。</li>
+</ul>
+<p>同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性</p>
+<ul>
+<li>全局环境中，this会返回顶层对象。但是，Node模块和ES6模块中，this返回的是当前模块。</li>
+<li>函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象。但是，严格模式下，这时this会返回undefined</li>
+<li>不管是严格模式，还是普通模式，new Function(‘return this’)()，总是会返回全局对象。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/const/" rel="tag"># const</a>
+          
+            <a href="/tags/let/" rel="tag"># let</a>
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/15/babel编译es6/" rel="prev" title="Babel编译ES6">
+                Babel编译ES6 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/15/ES6--let和const命令/"
+           data-title="ES6笔记--- const和let" data-url="https://xunhe.github.io/2017/03/15/ES6--let和const命令/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="bunny" />
+          <p class="site-author-name" itemprop="name">bunny</p>
+           
+              <p class="site-description motion-element" itemprop="description">do more,talk less.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xunhe" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-let"><span class="nav-number">2.</span> <span class="nav-text">2.let</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">2.1基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2不存在变量提升"><span class="nav-number">2.2.</span> <span class="nav-text">2.2不存在变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3不允许重复声明"><span class="nav-number">2.3.</span> <span class="nav-text">2.3不允许重复声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-块级作用域"><span class="nav-number">3.</span> <span class="nav-text">3.块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-ES5中的作用域"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 ES5中的作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-ES6中的块级作用域"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 ES6中的块级作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-块级作用域与函数声明"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 块级作用域与函数声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-const命令"><span class="nav-number">4.</span> <span class="nav-text">4.const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-基本用法"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-const本质"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 const本质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-顶层对象"><span class="nav-number">5.</span> <span class="nav-text">5.顶层对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-global对象"><span class="nav-number">6.</span> <span class="nav-text">6.global对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bunny</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hadzuki"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

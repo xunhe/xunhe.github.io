@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-Hans,en,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -89,12 +89,12 @@
 
 <meta name="description" content="do more,talk less.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
+<meta property="og:title" content="WebNote">
 <meta property="og:url" content="https://xunhe.github.io/index.html">
-<meta property="og:site_name" content="Blog">
+<meta property="og:site_name" content="WebNote">
 <meta property="og:description" content="do more,talk less.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
+<meta name="twitter:title" content="WebNote">
 <meta name="twitter:description" content="do more,talk less.">
 
 
@@ -103,13 +103,13 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -129,10 +129,10 @@
 
 
 
-  <title> Blog </title>
+  <title> WebNote </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -167,7 +167,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Blog</span>
+        <span class="site-title">WebNote</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -197,7 +197,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -207,7 +227,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -217,7 +237,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -250,171 +270,16 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/17/ES6--let和const命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bunny">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/17/ES6--let和const命令/" itemprop="url">
-                  ES6-- let和const命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-17T16:34:50+08:00">
-                2017-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="ES6笔记—-const和let"><a href="#ES6笔记—-const和let" class="headerlink" title="ES6笔记— const和let"></a>ES6笔记— const和let</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
-<h3 id="2-let"><a href="#2-let" class="headerlink" title="2.let"></a>2.let</h3><h4 id="2-1基本用法"><a href="#2-1基本用法" class="headerlink" title="2.1基本用法"></a>2.1基本用法</h4><p>let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let a = 1;</div><div class="line">    var b = 1;</div><div class="line">&#125;</div><div class="line">b //1</div><div class="line">a //ReferenceError: a is not defined.</div></pre></td></tr></table></figure></p>
-<p>在for循环中，可以使用let来定义变量，防止变量名冲突<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for( let i = 0; i &lt; 10; i++) &#123;&#125;;</div><div class="line">console.log(i); //ReferenceError: i is not defined.</div></pre></td></tr></table></figure></p>
-<p>计数器i只在for循环内有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (let i = 0; i &lt; 10; i++) &#123;</div><div class="line">  a[i] = function () &#123;</div><div class="line">    console.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[6](); // 6</div></pre></td></tr></table></figure></p>
-<p>在上述代码中，i是let声明的，当前的i只在本轮循环内有效，所以每次的i都是一个新变量，所以最后输出的结果是6，但是如果换成var的话，var声明的变量在全局作用域内都有效，所以输出的值是10<br>若不使用es6,可以使用自定义属性或者闭包来实现上述功能</p>
-<h4 id="2-2不存在变量提升"><a href="#2-2不存在变量提升" class="headerlink" title="2.2不存在变量提升"></a>2.2不存在变量提升</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// var 的情况</div><div class="line">console.log(foo); // 输出undefined</div><div class="line">var foo = 2;</div><div class="line"></div><div class="line">// let 的情况</div><div class="line">console.log(bar); // 报错ReferenceError</div><div class="line">let bar = 2;</div></pre></td></tr></table></figure>
-<p>上述代码变量foo用var进行声明，存在变量提升，就是预解释，发生在代码执行之前，也就是说代码执行之前，foo已经存在了，而变量bar用let声明，不存在变量提升，在代码从上向下执行的时候bar是不存在的，所以会报错</p>
-<h4 id="2-3不允许重复声明"><a href="#2-3不允许重复声明" class="headerlink" title="2.3不允许重复声明"></a>2.3不允许重复声明</h4><p>let不允许在相同的作用域内，重复声明同一个变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 报错</div><div class="line">function () &#123;</div><div class="line">  let a = 10;</div><div class="line">  var a = 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 报错</div><div class="line">function () &#123;</div><div class="line">  let a = 10;</div><div class="line">  let a = 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>同理，不能在函数内部重新声明参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function(arg)&#123;</div><div class="line">    let arg;//报错</div><div class="line">&#125;</div><div class="line">function (arg)&#123;</div><div class="line">    &#123;</div><div class="line">        let arg;//不报错</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-块级作用域"><a href="#3-块级作用域" class="headerlink" title="3.块级作用域"></a>3.块级作用域</h3><h4 id="3-1-ES5中的作用域"><a href="#3-1-ES5中的作用域" class="headerlink" title="3.1 ES5中的作用域"></a>3.1 ES5中的作用域</h4><p>ES5中只有全局作用域和函数作用域，没有块级作用域，所以会带来很多问题</p>
-<p>1)内层变量覆盖外层变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var tmp = new Date();</div><div class="line"></div><div class="line">function f() &#123;</div><div class="line">  console.log(tmp);</div><div class="line">  if (false) &#123;</div><div class="line">    var tmp = &apos;hello world&apos;;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">f(); // undefined</div></pre></td></tr></table></figure></p>
-<p>因为var 有变量提升，函数执行时候，内层web覆盖外层web，所以输出undefined</p>
-<p>2)用来计数的循环变量泄漏为全局变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var s = &apos;hello&apos;;</div><div class="line"></div><div class="line">for (var i = 0; i &lt; s.length; i++) &#123;</div><div class="line">  console.log(s[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(i); // 5</div></pre></td></tr></table></figure></p>
-<p>因为var 有变量提升，函数执行时候，内层web覆盖外层web，所以输出undefined</p>
-<h4 id="3-2-ES6中的块级作用域"><a href="#3-2-ES6中的块级作用域" class="headerlink" title="3.2 ES6中的块级作用域"></a>3.2 ES6中的块级作用域</h4><p>let为javascript增加了块级作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">    let n=5;</div><div class="line">    if(true)&#123;</div><div class="line">        let n=10;</div><div class="line">    &#125;</div><div class="line">    console.log(n);//5</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面的代码打印出5，这表示外层代码块不受内部代码块的影响，如果使用var定义变量，最后输出的值就是10<br>ES6允许块级作用域的任意嵌套<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;&#123;&#123;&#123;let insane = &quot;hello world&quot;&#125;&#125;&#125;&#125;&#125;</div></pre></td></tr></table></figure></p>
-<p>上面代码使用了一个五层的块级作用域，外层作用于无法苏区内层作用于的变量<br>块级作用域的出现，使得内层作用域可以定义外层作用域的同名变量，使得获得广泛使用的立即执行函数表达式(自执行函数)(IIFE)不再必要了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//IIFE写法</div><div class="line">(function()&#123;</div><div class="line">    var tmp=...;</div><div class="line">    ...</div><div class="line">&#125;)();</div><div class="line">//块级作用域写法</div><div class="line">&#123;</div><div class="line">    let tmp = ...;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="3-3-块级作用域与函数声明"><a href="#3-3-块级作用域与函数声明" class="headerlink" title="3.3 块级作用域与函数声明"></a>3.3 块级作用域与函数声明</h4><p>ES5中，函数只能在顶层作用域和函数作用于中声明，不能在块级作用域中声明,以下都是非法的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//1</div><div class="line">if(true)&#123;</div><div class="line">    function f()&#123;&#125;</div><div class="line">&#125;</div><div class="line">//2</div><div class="line">try&#123;</div><div class="line">    function f()&#123;&#125;</div><div class="line">&#125;cache(e)&#123;&#125;</div></pre></td></tr></table></figure></p>
-<p>ES6中引入了块级作用域，明确允许块级作用域中声明函数</p>
-<h3 id="4-const命令"><a href="#4-const命令" class="headerlink" title="4.const命令"></a>4.const命令</h3><h4 id="4-1-基本用法"><a href="#4-1-基本用法" class="headerlink" title="4.1 基本用法"></a>4.1 基本用法</h4><p>const声明一个只读的常量，一旦声明，常量的值就不能改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const PI = 3.1415;</div><div class="line">PI //3.1415</div><div class="line">PI = 3;</div><div class="line">//Type Error:Assignment to constant variable</div></pre></td></tr></table></figure></p>
-<p>上面的代码表明改变常量的值会报错<br>const声明的变量不得改变值，这意味着一旦声明常量，就必须立即初始化，不能留到以后赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const foo;</div><div class="line">// SyntaxError: Missing initializer in const declaration</div></pre></td></tr></table></figure></p>
-<p>上面的代码表示，对于const来说，至生命不赋值就会报错<br>const的作用域和let命令相同：只在声明所在的块级作用域内有效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if(true)&#123;</div><div class="line">    const MAX=5;</div><div class="line">&#125;</div><div class="line">MAX //Uncaught ReferenceError: MAX is not defined</div></pre></td></tr></table></figure></p>
-<h4 id="4-2-const本质"><a href="#4-2-const本质" class="headerlink" title="4.2 const本质"></a>4.2 const本质</h4><p>const实际上保证的不是变量的值不可改动，而是变量指向的那个内存地址不得改动，对于简单类型的数据，值就保存在变量指向的那个内存地址，因此等同于常量；<br>但对于复合类型的数据，变量指向的内存地址，保存的是一个指针，const只能保证这个指针是固定的，至于它指向的数据结构是不是可变的就完全不能控制了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const foo = &#123;&#125;;</div><div class="line"></div><div class="line">// 为 foo 添加一个属性，可以成功</div><div class="line">foo.prop = 123;</div><div class="line">foo.prop // 123</div><div class="line"></div><div class="line">// 将 foo 指向另一个对象，就会报错</div><div class="line">foo = &#123;&#125;; // TypeError: &quot;foo&quot; is read-only</div></pre></td></tr></table></figure></p>
-<p>上面代码中，常量foo存储的是一个地址，这个地址指向一个对象，不可变得只是这个地址，不能把foo指向另一个地址，但是对象本身是可变的<br><strong>ES6声明变量的方法</strong><br>ES5 只有两种声明变量的方法：var命令和function命令。ES6除了添加let和const命令，后面章节还会提到，另外两种声明变量的方法：import命令和class命令。所以，ES6 一共有6种声明变量的方法。</p>
-<h3 id="5-顶层对象"><a href="#5-顶层对象" class="headerlink" title="5.顶层对象"></a>5.顶层对象</h3><p>顶层对象，在浏览器环境指的是window对象，在Node指的是global对象，ES5之中，顶层对象的属性和全局变量是等价的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">window.a = 1;</div><div class="line">a // 1</div><div class="line"></div><div class="line">a = 2;</div><div class="line">window.a // 2</div></pre></td></tr></table></figure></p>
-<p>上面代码中，顶层对象的属性赋值与全局变量的赋值，是同一件事。<br>ES6中，一方面规定，为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">// 如果在Node的REPL环境，可以写成global.a</div><div class="line">// 或者采用通用方法，写成this.a</div><div class="line">window.a // 1</div><div class="line"></div><div class="line">let b = 1;</div><div class="line">window.b // undefined</div></pre></td></tr></table></figure></p>
-<h3 id="6-global对象"><a href="#6-global对象" class="headerlink" title="6.global对象"></a>6.global对象</h3><p>ES5的顶层对象，在各种实现里是不统一的</p>
-<ul>
-<li>浏览器里面，顶层对象是window，但Node和Web Worker没有window</li>
-<li>浏览器和Web Worker里面，self也指向顶层对象，但是Node没有self</li>
-<li>Node里面，顶层对象是globak，但其他环境都不支持。</li>
-</ul>
-<p>同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性</p>
-<ul>
-<li>全局环境中，this会返回顶层对象。但是，Node模块和ES6模块中，this返回的是当前模块。</li>
-<li>函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象。但是，严格模式下，这时this会返回undefined</li>
-<li>不管是严格模式，还是普通模式，new Function(‘return this’)()，总是会返回全局对象。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/babel编译es6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bunny">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
+      <meta itemprop="name" content="WebNote">
     </span>
 
     
@@ -442,9 +307,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-15T00:24:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:47:01+08:00">
                 2017-03-15
               </time>
             
@@ -455,8 +320,40 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6相关/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/15/babel编译es6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/babel编译es6/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -481,19 +378,16 @@
 
       
         
-          
-            <h2 id="Babel编译ES6"><a href="#Babel编译ES6" class="headerlink" title="Babel编译ES6"></a>Babel编译ES6</h2><p>Babel是一个ES6转码器，可以将ES6转为ES5代码，从而在现有环境执行，编译步骤如下：</p>
+          <p>Babel是一个ES6转码器，可以将ES6转为ES5代码，从而在现有环境执行，编译步骤如下：</p>
 <h3 id="1-安装babel-cli"><a href="#1-安装babel-cli" class="headerlink" title="1.安装babel-cli"></a>1.安装babel-cli</h3><p>Babel提供babel-cli工具，用于命令行转码,全局下安装babel-cli<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-cli -g</div></pre></td></tr></table></figure></p>
-<h3 id="2-配置文件-babelrc"><a href="#2-配置文件-babelrc" class="headerlink" title="2.配置文件.babelrc"></a>2.配置文件.babelrc</h3><p>babel的配置文件是.babelrc,存放在项目的根目录下，用来设置转码规则和插件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;presets&quot;:[],</div><div class="line">    &quot;plugins&quot;:[]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>presets</code>用来设定转码规则，常见转码规则如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># ES5转码规则</div><div class="line">npm install babel-preset-es2015 --save-dev</div><div class="line"></div><div class="line"># react转码规则</div><div class="line">npm install babel-preset-react --save-dev</div></pre></td></tr></table></figure></p>
-<p>然后将这些规则加入.babelrc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   &quot;presets&quot;:[</div><div class="line">     &quot;es2015&quot;,</div><div class="line">     &quot;react&quot;</div><div class="line">   ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-在命令行中使用babel"><a href="#3-在命令行中使用babel" class="headerlink" title="3.在命令行中使用babel"></a>3.在命令行中使用babel</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 转码结果输出到标准输出</div><div class="line">babel example.js</div><div class="line"></div><div class="line"># 将转码结果写入另一个文件,使用 -o或者--out-file指定输出文件（转译文件到文件）</div><div class="line">babel example-es6.js -o example-es5.js</div><div class="line"># 或者</div><div class="line">babel example-es6.js --out-file example-es5.js</div><div class="line"></div><div class="line"># 整个目录转码（转译目录到目录）</div><div class="line"># --out-dir 或者 -d参数指定输出目录</div><div class="line">babel src --out-dir lib</div><div class="line"># 或者</div><div class="line">babel src -d lib</div><div class="line"></div><div class="line"># 监听文件变化</div><div class="line">babel -w src -d dist</div></pre></td></tr></table></figure>
-<p>上述代码是在全局环境下，进行babel转码。若要在当前项目中使用需要执行下面的命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm init -y</div><div class="line">npm install --save-dev babel-cli</div></pre></td></tr></table></figure>
-<p>然后，配置package.json文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  // ...</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;babel-cli&quot;: &quot;^6.0.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;build&quot;: &quot;babel src -d lib&quot;</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>转码的时候，就执行下面的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure></p>
-
-          
+<h3 id="2-配置文件-babelrc"><a href="#2-配置文件-babelrc" class="headerlink" title="2.配置文件.babelrc"></a>2.配置文件.babelrc</h3><p>babel的配置文件是.babelrc,存放在项目的根目录下，用来设置转码规则和插件。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/15/babel编译es6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -532,16 +426,16 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/01/16/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/ES6--let和const命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bunny">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
+      <meta itemprop="name" content="WebNote">
     </span>
 
     
@@ -554,8 +448,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/16/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2017/03/15/ES6--let和const命令/" itemprop="url">
+                  ES6笔记--- const和let
                 </a>
               
             
@@ -569,10 +463,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T23:41:02+08:00">
-                2017-01-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:47:01+08:00">
+                2017-03-15
               </time>
             
 
@@ -582,8 +476,40 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/15/ES6--let和const命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/ES6--let和const命令/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -608,18 +534,15 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
+<h3 id="2-let"><a href="#2-let" class="headerlink" title="2.let"></a>2.let</h3><h4 id="2-1基本用法"><a href="#2-1基本用法" class="headerlink" title="2.1基本用法"></a>2.1基本用法</h4><p>let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/15/ES6--let和const命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -682,7 +605,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/uploads/avatar.jpg"
                alt="bunny" />
           <p class="site-author-name" itemprop="name">bunny</p>
            
@@ -694,14 +617,28 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -709,6 +646,17 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xunhe" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -749,13 +697,13 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -827,6 +775,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
 
   
@@ -838,32 +793,39 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hadzuki"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
-	
 
 
 
 
 
-  
 
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
