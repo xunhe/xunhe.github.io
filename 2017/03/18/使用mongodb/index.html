@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mongodb," />
 
 
 
@@ -87,15 +87,33 @@
 
 
 
-<meta name="description" content="do more,talk less.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WebNote">
-<meta property="og:url" content="https://xunhe.github.io/index.html">
+<meta name="description" content="1.什么是mongodb
+MongoDB是一个基于分布式文件存储的开源数据库系统
+MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成
+MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。
+
+2.mongodb安装安装指南">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用mongodb">
+<meta property="og:url" content="https://xunhe.github.io/2017/03/18/使用mongodb/index.html">
 <meta property="og:site_name" content="WebNote">
-<meta property="og:description" content="do more,talk less.">
+<meta property="og:description" content="1.什么是mongodb
+MongoDB是一个基于分布式文件存储的开源数据库系统
+MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成
+MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。
+
+2.mongodb安装安装指南">
+<meta property="og:image" content="https://xunhe.github.io/images/mongovue.png">
+<meta property="og:updated_time" content="2017-03-18T12:02:18.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebNote">
-<meta name="twitter:description" content="do more,talk less.">
+<meta name="twitter:title" content="使用mongodb">
+<meta name="twitter:description" content="1.什么是mongodb
+MongoDB是一个基于分布式文件存储的开源数据库系统
+MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成
+MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。
+
+2.mongodb安装安装指南">
+<meta name="twitter:image" content="https://xunhe.github.io/images/mongovue.png">
 
 
 
@@ -123,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://xunhe.github.io/"/>
+  <link rel="canonical" href="https://xunhe.github.io/2017/03/18/使用mongodb/"/>
 
 
 
 
 
-  <title> WebNote </title>
+  <title> 使用mongodb | WebNote </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +172,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,9 +275,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -291,10 +307,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/03/18/使用mongodb/" itemprop="url">
-                  使用mongodb
-                </a>
+                使用mongodb
               
             
           </h1>
@@ -377,363 +390,96 @@
       
 
       
-        
-          <h3 id="1-什么是mongodb"><a href="#1-什么是mongodb" class="headerlink" title="1.什么是mongodb"></a>1.什么是mongodb</h3><ul>
+        <h3 id="1-什么是mongodb"><a href="#1-什么是mongodb" class="headerlink" title="1.什么是mongodb"></a>1.什么是mongodb</h3><ul>
 <li>MongoDB是一个基于分布式文件存储的开源数据库系统</li>
 <li>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成</li>
 <li>MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。</li>
 </ul>
-<h3 id="2-mongodb安装"><a href="#2-mongodb安装" class="headerlink" title="2.mongodb安装"></a>2.mongodb安装</h3><p><a href="https://www.mongodb.org/downloads">安装指南</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/18/使用mongodb/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h3 id="2-mongodb安装"><a href="#2-mongodb安装" class="headerlink" title="2.mongodb安装"></a>2.mongodb安装</h3><p><a href="https://www.mongodb.org/downloads" target="_blank" rel="external">安装指南</a><br><a id="more"></a></p>
+<h3 id="3-mongodb安装与连接"><a href="#3-mongodb安装与连接" class="headerlink" title="3.mongodb安装与连接"></a>3.mongodb安装与连接</h3><h4 id="3-1-windows启动服务器端"><a href="#3-1-windows启动服务器端" class="headerlink" title="3.1 windows启动服务器端"></a>3.1 windows启动服务器端</h4><p>找到mongodb安装目录，打开命令行窗口，并在除了安装盘之外的盘新建一个空目录，例如: D:\Mongodb\data<br>在命令行中执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --dbpath=D:\Mongodb\data</div></pre></td></tr></table></figure></p>
+<p>如果出现waiting for connections on port 27017就表示启动成功,已经在27017端口上监听了客户端的请求<br><strong>注意</strong>：</p>
+<ul>
+<li>–dbpath 后的值表示数据库文件的存储路径，而且必须存在，否则报错</li>
+<li>这个命令窗体不能关闭，否则就相当于停止了mongodb服务</li>
+</ul>
+<h4 id="3-2-启动服务端连接服务器"><a href="#3-2-启动服务端连接服务器" class="headerlink" title="3.2 启动服务端连接服务器"></a>3.2 启动服务端连接服务器</h4><p>找到mongodb的安装目录并打开命令行窗口，在命令行中输入 mongo –host=127.0.0.1 或者 mongo 执行该命令</p>
+<blockquote>
+<p>备注：–host后的值表示服务器的ip地址， –host=127.0.0.1表示的就是本地服务器，每次数据库都会默认连接test数据库</p>
+</blockquote>
+<h3 id="4-Mongodb-基本概念"><a href="#4-Mongodb-基本概念" class="headerlink" title="4.Mongodb 基本概念"></a>4.Mongodb 基本概念</h3><p>一个mongodb中可以建立多个数据库。<br>MongoDB的默认数据库为”db”，该数据库存储在data目录中。<br>MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。</p>
+<p><code>&quot;show dbs&quot;</code>命令可以显示所有数据的列表。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ./mongo</div><div class="line">MongoDB shell version: <span class="number">3.0</span><span class="number">.6</span></div><div class="line">connecting to: test</div><div class="line">&gt; show dbs</div><div class="line">local  <span class="number">0.078</span>GB</div><div class="line">test   <span class="number">0.078</span>GB</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>执行<code>&quot;db&quot;</code>命令可以显示当前数据库对象或集合。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ ./mongo</div><div class="line">MongoDB shell version: 3.0.6</div><div class="line">connecting to: test</div><div class="line">&gt; db</div><div class="line">test</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>运行<code>&quot;use&quot;</code>命令，可以连接到一个指定的数据库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; use local</div><div class="line">switched to db local</div><div class="line">//查看当前数据库</div><div class="line">&gt; db</div><div class="line">local</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>向当前数据库中的<code>user</code>集合中插入一个文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.insert(&#123;id:1,name:&apos;xxx&apos;&#125;)</div><div class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>插入文档的时候，数据库会为当前文档添加一个唯一标识，_id(主件) 唯一标识该字段，若数据库中有重复的项，可以通过_id来进行查找<br>查看当前数据库中<code>user</code>集合的全部文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find();</div><div class="line">&#123; &quot;_id&quot; : ObjectId(&quot;58cc9bae103343f7dce9ad5e&quot;), &quot;id&quot; : 1, &quot;name&quot; : &quot;xxx&quot; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>在当前数据库<code>user</code>集合中查找一项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.users.find(&#123;username:&apos;xtr&apos;&#125;)</div><div class="line">&#123; &quot;_id&quot; : ObjectId(&quot;58cd1d209b82ffdab03f12a3&quot;), &quot;username&quot; : &quot;xtr&quot;, &quot;email&quot; : &quot;xx@126.com&quot;, &quot;__v&quot; : 0 &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>数据库(database) mongodb的单个实例可以容纳多个独立的数据库，比如一个学生管理系统就可以对应一个数据库实例</li>
+<li>集合(collection) 数据库是由集合组成的，一个集合用来表示一个实体，比如说学生集合</li>
+<li>文档(document) 集合是由文档组成的，一个文档表示一条记录，比如学生 xxx就是一个文档</li>
+</ul>
+<p><img src="images/mongovue.png" alt="img"></p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/babel编译es6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bunny">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WebNote">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/15/babel编译es6/" itemprop="url">
-                  Babel编译ES6
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:47:01+08:00">
-                2017-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6相关/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6相关</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/mongodb/" rel="tag"># mongodb</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/15/babel编译es6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/babel编译es6/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          <p>Babel是一个ES6转码器，可以将ES6转为ES5代码，从而在现有环境执行，编译步骤如下：</p>
-<h3 id="1-安装babel-cli"><a href="#1-安装babel-cli" class="headerlink" title="1.安装babel-cli"></a>1.安装babel-cli</h3><p>Babel提供babel-cli工具，用于命令行转码,全局下安装babel-cli<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-cli -g</div></pre></td></tr></table></figure></p>
-<h3 id="2-配置文件-babelrc"><a href="#2-配置文件-babelrc" class="headerlink" title="2.配置文件.babelrc"></a>2.配置文件.babelrc</h3><p>babel的配置文件是.babelrc,存放在项目的根目录下，用来设置转码规则和插件。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/15/babel编译es6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/15/babel编译es6/" rel="next" title="Babel编译ES6">
+                <i class="fa fa-chevron-left"></i> Babel编译ES6
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/ES6--let和const命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bunny">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WebNote">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/15/ES6--let和const命令/" itemprop="url">
-                  ES6笔记--- const和let
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:47:01+08:00">
-                2017-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/15/ES6--let和const命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/ES6--let和const命令/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
-<h3 id="2-let"><a href="#2-let" class="headerlink" title="2.let"></a>2.let</h3><h4 id="2-1基本用法"><a href="#2-1基本用法" class="headerlink" title="2.1基本用法"></a>2.1基本用法</h4><p>let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/15/ES6--let和const命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -741,6 +487,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/18/使用mongodb/"
+           data-title="使用mongodb" data-url="https://xunhe.github.io/2017/03/18/使用mongodb/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -760,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -830,6 +593,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是mongodb"><span class="nav-number">1.</span> <span class="nav-text">1.什么是mongodb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-mongodb安装"><span class="nav-number">2.</span> <span class="nav-text">2.mongodb安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-mongodb安装与连接"><span class="nav-number">3.</span> <span class="nav-text">3.mongodb安装与连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-windows启动服务器端"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 windows启动服务器端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-启动服务端连接服务器"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 启动服务端连接服务器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Mongodb-基本概念"><span class="nav-number">4.</span> <span class="nav-text">4.Mongodb 基本概念</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -942,6 +721,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
