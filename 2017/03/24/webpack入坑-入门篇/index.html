@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mongodb," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -87,31 +87,31 @@
 
 
 
-<meta name="description" content="1.什么是mongodb
-MongoDB是一个基于分布式文件存储的开源数据库系统
-MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成
-MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。
+<meta name="description" content="最近在使用webpack，看官方文档感觉不够详细，于是参考了几篇文章，写一篇比较详细的入门指南，讲讲最基本的用法吧
 
-2.mongodb安装安装指南">
+1.webpack是什么
+作为基本了解就好
+
+Webpack 是德国开发者 Tobias Koppers 开发的模块加载器兼打包工具，在webpack中，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理，根据模块的依赖">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用mongodb">
-<meta property="og:url" content="https://xunhe.github.io/2017/03/18/使用mongodb/index.html">
+<meta property="og:title" content="webpack入坑--入门篇">
+<meta property="og:url" content="https://xunhe.github.io/2017/03/24/webpack入坑-入门篇/index.html">
 <meta property="og:site_name" content="WebNote">
-<meta property="og:description" content="1.什么是mongodb
-MongoDB是一个基于分布式文件存储的开源数据库系统
-MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成
-MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。
+<meta property="og:description" content="最近在使用webpack，看官方文档感觉不够详细，于是参考了几篇文章，写一篇比较详细的入门指南，讲讲最基本的用法吧
 
-2.mongodb安装安装指南">
-<meta property="og:updated_time" content="2017-03-18T12:18:58.792Z">
+1.webpack是什么
+作为基本了解就好
+
+Webpack 是德国开发者 Tobias Koppers 开发的模块加载器兼打包工具，在webpack中，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理，根据模块的依赖">
+<meta property="og:updated_time" content="2017-03-24T09:17:15.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用mongodb">
-<meta name="twitter:description" content="1.什么是mongodb
-MongoDB是一个基于分布式文件存储的开源数据库系统
-MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成
-MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。
+<meta name="twitter:title" content="webpack入坑--入门篇">
+<meta name="twitter:description" content="最近在使用webpack，看官方文档感觉不够详细，于是参考了几篇文章，写一篇比较详细的入门指南，讲讲最基本的用法吧
 
-2.mongodb安装安装指南">
+1.webpack是什么
+作为基本了解就好
+
+Webpack 是德国开发者 Tobias Koppers 开发的模块加载器兼打包工具，在webpack中，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理，根据模块的依赖">
 
 
 
@@ -139,13 +139,13 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
 
 
 
-  <link rel="canonical" href="https://xunhe.github.io/2017/03/18/使用mongodb/"/>
+  <link rel="canonical" href="https://xunhe.github.io/2017/03/24/webpack入坑-入门篇/"/>
 
 
 
 
 
-  <title> 使用mongodb | WebNote </title>
+  <title> webpack入坑--入门篇 | WebNote </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +284,7 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/18/使用mongodb/">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/24/webpack入坑-入门篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bunny">
@@ -305,7 +305,7 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
             
             
               
-                使用mongodb
+                webpack入坑--入门篇
               
             
           </h1>
@@ -320,8 +320,8 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T19:57:02+08:00">
-                2017-03-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T17:15:23+08:00">
+                2017-03-24
               </time>
             
 
@@ -343,8 +343,8 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mongodb/" itemprop="url" rel="index">
-                    <span itemprop="name">mongodb</span>
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
                   </a>
                 </span>
 
@@ -361,8 +361,8 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/18/使用mongodb/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/18/使用mongodb/" itemprop="commentCount"></span>
+                <a href="/2017/03/24/webpack入坑-入门篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/24/webpack入坑-入门篇/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,34 +388,34 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
       
 
       
-        <h3 id="1-什么是mongodb"><a href="#1-什么是mongodb" class="headerlink" title="1.什么是mongodb"></a>1.什么是mongodb</h3><ul>
-<li>MongoDB是一个基于分布式文件存储的开源数据库系统</li>
-<li>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成</li>
-<li>MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组及文档数组。</li>
-</ul>
-<h3 id="2-mongodb安装"><a href="#2-mongodb安装" class="headerlink" title="2.mongodb安装"></a>2.mongodb安装</h3><p><a href="https://www.mongodb.org/downloads" target="_blank" rel="external">安装指南</a><br><a id="more"></a></p>
-<h3 id="3-mongodb安装与连接"><a href="#3-mongodb安装与连接" class="headerlink" title="3.mongodb安装与连接"></a>3.mongodb安装与连接</h3><h4 id="3-1-windows启动服务器端"><a href="#3-1-windows启动服务器端" class="headerlink" title="3.1 windows启动服务器端"></a>3.1 windows启动服务器端</h4><p>找到mongodb安装目录，打开命令行窗口，并在除了安装盘之外的盘新建一个空目录，例如: D:\Mongodb\data<br>在命令行中执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --dbpath=D:\Mongodb\data</div></pre></td></tr></table></figure></p>
-<p>如果出现waiting for connections on port 27017就表示启动成功,已经在27017端口上监听了客户端的请求<br><strong>注意</strong>：</p>
-<ul>
-<li>–dbpath 后的值表示数据库文件的存储路径，而且必须存在，否则报错</li>
-<li>这个命令窗体不能关闭，否则就相当于停止了mongodb服务</li>
-</ul>
-<h4 id="3-2-启动服务端连接服务器"><a href="#3-2-启动服务端连接服务器" class="headerlink" title="3.2 启动服务端连接服务器"></a>3.2 启动服务端连接服务器</h4><p>找到mongodb的安装目录并打开命令行窗口，在命令行中输入 mongo –host=127.0.0.1 或者 mongo 执行该命令</p>
-<blockquote>
-<p>备注：–host后的值表示服务器的ip地址， –host=127.0.0.1表示的就是本地服务器，每次数据库都会默认连接test数据库</p>
+        <blockquote>
+<p>最近在使用webpack，看官方文档感觉不够详细，于是参考了几篇文章，写一篇比较详细的入门指南，讲讲最基本的用法吧</p>
 </blockquote>
-<h3 id="4-Mongodb-基本概念"><a href="#4-Mongodb-基本概念" class="headerlink" title="4.Mongodb 基本概念"></a>4.Mongodb 基本概念</h3><p>一个mongodb中可以建立多个数据库。<br>MongoDB的默认数据库为”db”，该数据库存储在data目录中。<br>MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。</p>
-<p><code>&quot;show dbs&quot;</code>命令可以显示所有数据的列表。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ./mongo</div><div class="line">MongoDB shell version: <span class="number">3.0</span><span class="number">.6</span></div><div class="line">connecting to: test</div><div class="line">&gt; show dbs</div><div class="line">local  <span class="number">0.078</span>GB</div><div class="line">test   <span class="number">0.078</span>GB</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<p>执行<code>&quot;db&quot;</code>命令可以显示当前数据库对象或集合。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ ./mongo</div><div class="line">MongoDB shell version: 3.0.6</div><div class="line">connecting to: test</div><div class="line">&gt; db</div><div class="line">test</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<p>运行<code>&quot;use&quot;</code>命令，可以连接到一个指定的数据库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; use local</div><div class="line">switched to db local</div><div class="line">//查看当前数据库</div><div class="line">&gt; db</div><div class="line">local</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<p>向当前数据库中的<code>user</code>集合中插入一个文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.insert(&#123;id:1,name:&apos;xxx&apos;&#125;)</div><div class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<p>插入文档的时候，数据库会为当前文档添加一个唯一标识，_id(主件) 唯一标识该字段，若数据库中有重复的项，可以通过_id来进行查找<br>查看当前数据库中<code>user</code>集合的全部文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.user.find();</div><div class="line">&#123; &quot;_id&quot; : ObjectId(&quot;58cc9bae103343f7dce9ad5e&quot;), &quot;id&quot; : 1, &quot;name&quot; : &quot;xxx&quot; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<p>在当前数据库<code>user</code>集合中查找一项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.users.find(&#123;username:&apos;xtr&apos;&#125;)</div><div class="line">&#123; &quot;_id&quot; : ObjectId(&quot;58cd1d209b82ffdab03f12a3&quot;), &quot;username&quot; : &quot;xtr&quot;, &quot;email&quot; : &quot;xx@126.com&quot;, &quot;__v&quot; : 0 &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<ul>
-<li>数据库(database) mongodb的单个实例可以容纳多个独立的数据库，比如一个学生管理系统就可以对应一个数据库实例</li>
-<li>集合(collection) 数据库是由集合组成的，一个集合用来表示一个实体，比如说学生集合</li>
-<li>文档(document) 集合是由文档组成的，一个文档表示一条记录，比如学生 xxx就是一个文档</li>
-</ul>
+<h2 id="1-webpack是什么"><a href="#1-webpack是什么" class="headerlink" title="1.webpack是什么"></a>1.webpack是什么</h2><blockquote>
+<p>作为基本了解就好</p>
+</blockquote>
+<p>Webpack 是德国开发者 Tobias Koppers 开发的模块加载器兼打包工具，在webpack中，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理，根据模块的依赖关系进行静态分析，然后根据这些模块按照指定的规则生成对应的静态资源, Webpack 当中 js 可以引用 css, css 中可以嵌入图片 dataUrl。</p>
+<p>Github主页: <a href="https://github.com/webpack" target="_blank" rel="external">https://github.com/webpack</a></p>
+<p>官方文档: <a href="http://webpack.github.io/docs" target="_blank" rel="external">http://webpack.github.io/docs</a></p>
+<p><strong>why webpack</strong></p>
+<ol>
+<li>对CommonJS/AMD/ES6的语法做了兼容方便旧项目进行代码迁移</li>
+<li>对js、css、图片等资源文件都支持打包</li>
+<li>串联式模块加载器以及插件机制，让其具有更好的灵活性和扩展性，例如提供对CoffeeScript、ES6的支持</li>
+<li>有独立的配置文件webpack.config.js</li>
+<li>具有强大的Plugin接口，大多是内部插件，使用起来比较灵活</li>
+</ol>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>因为webpack是一个基于node的项目，需要先装好node和npm</p>
+<p>webpack可以作为全局的npm进行安装，也可以在当前项目中进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 在当前项目文件夹下打开cmd</div><div class="line"># 生成package.json文件</div><div class="line">npm init -y</div><div class="line"># 安装webpack依赖</div><div class="line">npm install webpack --save-dev</div></pre></td></tr></table></figure></p>
+<p>如果使用git管理这个项目的话，建议建立一个.gitignore文件，不要让git提交一些node依赖的模块，例如node_modules</p>
+<p>我的.gitignore:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node_modules</div><div class="line">.idea</div><div class="line">lib</div></pre></td></tr></table></figure></p>
+<h2 id="3-项目结构"><a href="#3-项目结构" class="headerlink" title="3.项目结构"></a>3.项目结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">· /app</div><div class="line">    - index.js</div><div class="line">    - sub.js</div><div class="line">    - index.html</div><div class="line">· /node_modules</div><div class="line">    ...</div><div class="line">· package.json</div><div class="line">· webpack.config.js</div></pre></td></tr></table></figure>
+<p>添加了两个js文件和webpack的配置文件(webpack.config.js)，配置文件名称最好是默认的名称，若不是默认，后续在配置package.json脚本的时候需要做相关修改</p>
+<p><em>sub.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这里我们使用的是commonJS的风格</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateText</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ele = <span class="built_in">document</span>.createElement(<span class="string">"h2"</span>);</div><div class="line">    ele.innerHTML = <span class="string">'hello h2'</span>;</div><div class="line">    <span class="keyword">return</span> ele;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = generateText;</div></pre></td></tr></table></figure></p>
+<p><em>index.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在index module中引用sub</span></div><div class="line"><span class="keyword">var</span> sub = <span class="built_in">require</span>(<span class="string">'./sub'</span>);</div><div class="line"><span class="keyword">var</span> app = <span class="built_in">document</span>.createElement(<span class="string">'h1'</span>);</div><div class="line">app.innerHTML = <span class="string">'&lt;h1&gt;hello h1&lt;/h1&gt;'</span>;</div><div class="line">app.appendChild(sub());</div><div class="line"><span class="built_in">document</span>.body.appendChild(app);</div></pre></td></tr></table></figure></p>
+<p>新建了一个单独的module，并在另一个module里面引用它<br><strong>配置webpack</strong><br>开始配置webpack之前，可以现在build目录下新建一个index.html文件，引入合并的js文件，这样比较麻烦，所以需要安装一个html-webpack-plugin，可以快速的帮我们生成html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">//项目的入口文件 可以直接用文件夹名称 默认会找index.js 如果默认是别的js文件，也可以设置成js文件</span></div><div class="line">    entry: <span class="string">"./app/index.js"</span>,</div><div class="line"></div><div class="line">    <span class="attr">output</span>:&#123;</div><div class="line">        <span class="comment">//定义输出的文件夹路径</span></div><div class="line">        path:path.resolve(<span class="string">'./build'</span>),</div><div class="line">        <span class="comment">//指定打包的文件名称，也就是js文件都会合并成一个文件bundle.js</span></div><div class="line">        filename:<span class="string">'bundle.js'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//添加插件，会自动生成一个html文件</span></div><div class="line">    plugins:[</div><div class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</div><div class="line">            <span class="attr">template</span>:<span class="string">'./app/index.html'</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>然后在根目录打开命令行运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack</div></pre></td></tr></table></figure></p>
+<p>如果当前的目录是这样，并且命令行中没有error的提示，就表示打包成功了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">· /app</div><div class="line">    - index.html</div><div class="line">    - index.js</div><div class="line">    - sub.js</div><div class="line">· /build</div><div class="line">    - bundle.js</div><div class="line">    - index.html</div><div class="line">· /node_modules</div><div class="line">    ···</div><div class="line">· package.json</div><div class="line">· webpack.json.js</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -439,7 +439,7 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
       
         <div class="post-tags">
           
-            <a href="/tags/mongodb/" rel="tag"># mongodb</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -452,8 +452,8 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/15/babel编译es6/" rel="next" title="Babel编译ES6">
-                <i class="fa fa-chevron-left"></i> Babel编译ES6
+              <a href="/2017/03/18/使用mongodb/" rel="next" title="使用mongodb">
+                <i class="fa fa-chevron-left"></i> 使用mongodb
               </a>
             
           </div>
@@ -461,10 +461,6 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/24/webpack入坑-入门篇/" rel="prev" title="webpack入坑--入门篇">
-                webpack入坑--入门篇 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -490,8 +486,8 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/18/使用mongodb/"
-           data-title="使用mongodb" data-url="https://xunhe.github.io/2017/03/18/使用mongodb/">
+      <div class="ds-thread" data-thread-key="2017/03/24/webpack入坑-入门篇/"
+           data-title="webpack入坑--入门篇" data-url="https://xunhe.github.io/2017/03/24/webpack入坑-入门篇/">
       </div>
     
   </div>
@@ -604,7 +600,7 @@ MongoDB 文档类似于JSON对象。字段值可以包含其他文档，数组�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是mongodb"><span class="nav-number">1.</span> <span class="nav-text">1.什么是mongodb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-mongodb安装"><span class="nav-number">2.</span> <span class="nav-text">2.mongodb安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-mongodb安装与连接"><span class="nav-number">3.</span> <span class="nav-text">3.mongodb安装与连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-windows启动服务器端"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 windows启动服务器端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-启动服务端连接服务器"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 启动服务端连接服务器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Mongodb-基本概念"><span class="nav-number">4.</span> <span class="nav-text">4.Mongodb 基本概念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-webpack是什么"><span class="nav-number">1.</span> <span class="nav-text">1.webpack是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装"><span class="nav-number">2.</span> <span class="nav-text">2.安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-项目结构"><span class="nav-number">3.</span> <span class="nav-text">3.项目结构</span></a></li></ol></div>
             
 
           </div>
