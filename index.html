@@ -270,6 +270,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/24/webpack入坑-loader篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bunny">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WebNote">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/24/webpack入坑-loader篇/" itemprop="url">
+                  webpack入坑--loader篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T19:25:11+08:00">
+                2017-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/24/webpack入坑-loader篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/24/webpack入坑-loader篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h2><p>上一篇我们已经实现了js文件的打包处理，webpack自身只能处理js模块，但是我们可以通过loader来处理其他类型的文件</p>
+<h2 id="loader介绍"><a href="#loader介绍" class="headerlink" title="loader介绍"></a>loader介绍</h2><p>loader可以理解为模块和资源的转换器，它本身是一个函数，接收源文件为参数，返回转换的结果，这样我们就可以通过require来加载任何类型的文件或者模块，比如jsx sass 图片等。</p>
+<h2 id="babel-loader"><a href="#babel-loader" class="headerlink" title="babel loader"></a>babel loader</h2><p>需要安装的模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-loader babel-core babel-preset-react babel-preset-es2015 --save-dev</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/24/webpack入坑-loader篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/24/webpack入坑-入门篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -378,37 +534,22 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>最近在使用webpack，看官方文档感觉不够详细，于是参考了几篇文章，写一篇比较详细的入门指南，讲讲最基本的用法吧</p>
 </blockquote>
 <h2 id="1-webpack是什么"><a href="#1-webpack是什么" class="headerlink" title="1.webpack是什么"></a>1.webpack是什么</h2><blockquote>
 <p>作为基本了解就好</p>
 </blockquote>
 <p>Webpack 是德国开发者 Tobias Koppers 开发的模块加载器兼打包工具，在webpack中，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理，根据模块的依赖关系进行静态分析，然后根据这些模块按照指定的规则生成对应的静态资源, Webpack 当中 js 可以引用 css, css 中可以嵌入图片 dataUrl。</p>
-<p>Github主页: <a href="https://github.com/webpack" target="_blank" rel="external">https://github.com/webpack</a></p>
-<p>官方文档: <a href="http://webpack.github.io/docs" target="_blank" rel="external">http://webpack.github.io/docs</a></p>
-<p><strong>why webpack</strong></p>
-<ol>
-<li>对CommonJS/AMD/ES6的语法做了兼容方便旧项目进行代码迁移</li>
-<li>对js、css、图片等资源文件都支持打包</li>
-<li>串联式模块加载器以及插件机制，让其具有更好的灵活性和扩展性，例如提供对CoffeeScript、ES6的支持</li>
-<li>有独立的配置文件webpack.config.js</li>
-<li>具有强大的Plugin接口，大多是内部插件，使用起来比较灵活</li>
-</ol>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>因为webpack是一个基于node的项目，需要先装好node和npm</p>
-<p>webpack可以作为全局的npm进行安装，也可以在当前项目中进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 在当前项目文件夹下打开cmd</div><div class="line"># 生成package.json文件</div><div class="line">npm init -y</div><div class="line"># 安装webpack依赖</div><div class="line">npm install webpack --save-dev</div></pre></td></tr></table></figure></p>
-<p>如果使用git管理这个项目的话，建议建立一个.gitignore文件，不要让git提交一些node依赖的模块，例如node_modules</p>
-<p>我的.gitignore:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node_modules</div><div class="line">.idea</div><div class="line">lib</div></pre></td></tr></table></figure></p>
-<h2 id="3-项目结构"><a href="#3-项目结构" class="headerlink" title="3.项目结构"></a>3.项目结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">· /app</div><div class="line">    - index.js</div><div class="line">    - sub.js</div><div class="line">    - index.html</div><div class="line">· /node_modules</div><div class="line">    ...</div><div class="line">· package.json</div><div class="line">· webpack.config.js</div></pre></td></tr></table></figure>
-<p>添加了两个js文件和webpack的配置文件(webpack.config.js)，配置文件名称最好是默认的名称，若不是默认，后续在配置package.json脚本的时候需要做相关修改</p>
-<p><em>sub.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这里我们使用的是commonJS的风格</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateText</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ele = <span class="built_in">document</span>.createElement(<span class="string">"h2"</span>);</div><div class="line">    ele.innerHTML = <span class="string">'hello h2'</span>;</div><div class="line">    <span class="keyword">return</span> ele;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = generateText;</div></pre></td></tr></table></figure></p>
-<p><em>index.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在index module中引用sub</span></div><div class="line"><span class="keyword">var</span> sub = <span class="built_in">require</span>(<span class="string">'./sub'</span>);</div><div class="line"><span class="keyword">var</span> app = <span class="built_in">document</span>.createElement(<span class="string">'h1'</span>);</div><div class="line">app.innerHTML = <span class="string">'&lt;h1&gt;hello h1&lt;/h1&gt;'</span>;</div><div class="line">app.appendChild(sub());</div><div class="line"><span class="built_in">document</span>.body.appendChild(app);</div></pre></td></tr></table></figure></p>
-<p>新建了一个单独的module，并在另一个module里面引用它<br><strong>配置webpack</strong><br>开始配置webpack之前，可以现在build目录下新建一个index.html文件，引入合并的js文件，这样比较麻烦，所以需要安装一个html-webpack-plugin，可以快速的帮我们生成html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">//项目的入口文件 可以直接用文件夹名称 默认会找index.js 如果默认是别的js文件，也可以设置成js文件</span></div><div class="line">    entry: <span class="string">"./app/index.js"</span>,</div><div class="line"></div><div class="line">    <span class="attr">output</span>:&#123;</div><div class="line">        <span class="comment">//定义输出的文件夹路径</span></div><div class="line">        path:path.resolve(<span class="string">'./build'</span>),</div><div class="line">        <span class="comment">//指定打包的文件名称，也就是js文件都会合并成一个文件bundle.js</span></div><div class="line">        filename:<span class="string">'bundle.js'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//添加插件，会自动生成一个html文件</span></div><div class="line">    plugins:[</div><div class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</div><div class="line">            <span class="attr">template</span>:<span class="string">'./app/index.html'</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>然后在根目录打开命令行运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack</div></pre></td></tr></table></figure></p>
-<p>如果当前的目录是这样，并且命令行中没有error的提示，就表示打包成功了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">· /app</div><div class="line">    - index.html</div><div class="line">    - index.js</div><div class="line">    - sub.js</div><div class="line">· /build</div><div class="line">    - bundle.js</div><div class="line">    - index.html</div><div class="line">· /node_modules</div><div class="line">    ···</div><div class="line">· package.json</div><div class="line">· webpack.json.js</div></pre></td></tr></table></figure></p>
-
-          
+<p>Github主页: <a href="https://github.com/webpack">https://github.com/webpack</a></p>
+<p>官方文档: <a href="http://webpack.github.io/docs">http://webpack.github.io/docs</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/24/webpack入坑-入门篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -953,7 +1094,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
