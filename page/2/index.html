@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/ES6--let和const命令/">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/02/01/ES6-解构赋值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bunny">
@@ -292,8 +292,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/15/ES6--let和const命令/" itemprop="url">
-                  ES6笔记--- const和let
+                <a class="post-title-link" href="/2017/02/01/ES6-解构赋值/" itemprop="url">
+                  ES6--解构赋值
                 </a>
               
             
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:47:01+08:00">
-                2017-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-01T12:33:43+08:00">
+                2017-02-01
               </time>
             
 
@@ -350,8 +350,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/15/ES6--let和const命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/ES6--let和const命令/" itemprop="commentCount"></span>
+                <a href="/2017/02/01/ES6-解构赋值/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/01/ES6-解构赋值/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,11 +378,11 @@
 
       
         
-          <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
-<h3 id="2-let"><a href="#2-let" class="headerlink" title="2.let"></a>2.let</h3><h4 id="2-1基本用法"><a href="#2-1基本用法" class="headerlink" title="2.1基本用法"></a>2.1基本用法</h4><p>let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效<br>
+          <h2 id="1-数组的解构赋值"><a href="#1-数组的解构赋值" class="headerlink" title="1. 数组的解构赋值"></a>1. 数组的解构赋值</h2><p>ES6按照一定模式，从数组和对象中提取值，对变量进行赋值，这被成为解构赋值<br>用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">let</span> [,,third] = [<span class="string">"foo"</span>,<span class="string">"bar"</span>,<span class="string">"baz"</span>];</div><div class="line">third <span class="comment">//"baz"</span></div><div class="line"><span class="keyword">let</span>[head,...tail] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">tail <span class="comment">//[2,3,4]</span></div><div class="line"><span class="keyword">let</span> [x,y,...z] = [<span class="string">'a'</span>];</div><div class="line">x <span class="comment">//'a'</span></div><div class="line">y <span class="comment">//undefined</span></div><div class="line">z <span class="comment">//[]</span></div></pre></td></tr></table></figure></p>
+<p>解构不成功，变量的值就是undefined<br>如果等号右边不是数组（或者严格的说不是可遍历的结构，就会报错）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [foo] = <span class="number">1</span>;<span class="comment">//报错</span></div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/15/ES6--let和const命令/#more" rel="contents">
+            <a class="btn" href="/2017/02/01/ES6-解构赋值/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -425,7 +425,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/03/15/babel编译es6/">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/01/20/ES6--let和const命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bunny">
@@ -447,8 +447,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/15/babel编译es6/" itemprop="url">
-                  Babel编译ES6
+                <a class="post-title-link" href="/2017/01/20/ES6--let和const命令/" itemprop="url">
+                  ES6笔记--- const和let
                 </a>
               
             
@@ -464,8 +464,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T15:47:01+08:00">
-                2017-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T15:47:01+08:00">
+                2017-01-20
               </time>
             
 
@@ -487,8 +487,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6相关/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6相关</span>
+                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习</span>
                   </a>
                 </span>
 
@@ -505,8 +505,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/15/babel编译es6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/babel编译es6/" itemprop="commentCount"></span>
+                <a href="/2017/01/20/ES6--let和const命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/20/ES6--let和const命令/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -533,12 +533,11 @@
 
       
         
-          <p>Babel是一个ES6转码器，可以将ES6转为ES5代码，从而在现有环境执行，编译步骤如下：</p>
-<h3 id="1-安装babel-cli"><a href="#1-安装babel-cli" class="headerlink" title="1.安装babel-cli"></a>1.安装babel-cli</h3><p>Babel提供babel-cli工具，用于命令行转码,全局下安装babel-cli<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-cli -g</div></pre></td></tr></table></figure></p>
-<h3 id="2-配置文件-babelrc"><a href="#2-配置文件-babelrc" class="headerlink" title="2.配置文件.babelrc"></a>2.配置文件.babelrc</h3><p>babel的配置文件是.babelrc,存放在项目的根目录下，用来设置转码规则和插件。<br>
+          <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>ECMAScript是javascript语言的下一代标准，也称作ES2015</p>
+<h3 id="2-let"><a href="#2-let" class="headerlink" title="2.let"></a>2.let</h3><h4 id="2-1基本用法"><a href="#2-1基本用法" class="headerlink" title="2.1基本用法"></a>2.1基本用法</h4><p>let的用途跟var相似，都是用来声明变量的，但是let声明的变量只在let命令所在的代码块里有效<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/15/babel编译es6/#more" rel="contents">
+            <a class="btn" href="/2017/01/20/ES6--let和const命令/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
