@@ -356,8 +356,7 @@
 
       
         
-          
-            <h2 id="关于SEO"><a href="#关于SEO" class="headerlink" title="关于SEO"></a>关于SEO</h2><p>SEO(Search Engine Optimization)，就是很多人口中所说的搜索引擎优化。<br>比较官方的解释：</p>
+          <h2 id="关于SEO"><a href="#关于SEO" class="headerlink" title="关于SEO"></a>关于SEO</h2><p>SEO(Search Engine Optimization)，就是很多人口中所说的搜索引擎优化。<br>比较官方的解释：</p>
 <blockquote>
 <p>SEO是指为了增加网页在搜索引擎自然搜索结果的收录数量和提升排序位置而做的优化行为。</p>
 </blockquote>
@@ -375,39 +374,14 @@
 <p>其中最重要的是以下2个方面：</p>
 <ul>
 <li>网站结构布局优化</li>
-<li>网页代码优化</li>
-</ul>
-<h2 id="网站结构布局优化"><a href="#网站结构布局优化" class="headerlink" title="网站结构布局优化"></a>网站结构布局优化</h2><p>推荐使用 <strong>扁平化结构</strong> ，网站的目录层级要尽可能少，做到扁平化结构要注意以下几个方面</p>
-<ol>
-<li>控制首页的链接数量（网站首页的权重最高）。首页应该有有效的链接，爬虫通过首页的连接到达内页，如果没有有效的链接就会直接影响网站的收录数量。当然首页也不能有过多的链接，内页的链接不要放在首页，链接过多会影响用户体验。</li>
-<li>扁平化的目录层次。尽量让Spider跳转3次就可以到达网站的任意一个内页。例如网站的设计可以使用以下的3级：主页、栏目、内容页扁平铺开的结构（面包屑导航），而不能是纵深的结构。</li>
-<li>导航SEO优化。导航可以分为主导航和父导航。导航应该使用文字，如果为了用户体验采用图片导航，则应该为图片设置必要的alt和title属性。其次在导航的设计上应该使用面包屑导航。它能够让用户了解到当前的位置，了解网站内容的组织方式。</li>
-<li>页面的大小控制在100k以下。</li>
-</ol>
-<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><ol>
-<li>head中的标签<br><strong>title标签:</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;title&gt;网页标题&lt;/title&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>只要强调重点即可，重要关键词不要超过两次，而且要靠前，每个页面的title要有所不同</p>
-<p><strong>meta标签:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;keywords&quot; content=&quot;关键词&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p>列举出网站的重要关键词，一般在5个上下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;description&quot; content=&quot;网站描述&quot;&gt;</div></pre></td></tr></table></figure>
-<p>网站内容的高度概括，长度要合理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;author&quot; content=&quot;作者&quot;&gt;</div></pre></td></tr></table></figure>
-<p>网站的作者，可写可不写</p>
-<p>Meta标签主要的优化就是Description和Keywords,还有一些其他的隐藏文字例如Author,Category,language等</p>
-<ol>
-<li>代码语义化<br><code>&lt;br /&gt;</code>标记应该放在文本中间，即使用<code>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</code>替代突兀的<code>&lt;br /&gt;</code>标记。<br>html语义化。例如我们要做一个导航，可以使用div+span标记：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;nav&quot;&gt;</div><div class="line">    &lt;span&gt;课程&lt;/span&gt;</div><div class="line">    &lt;span&gt;|&lt;/span&gt;</div><div class="line">    &lt;span&gt;问答&lt;/span&gt;</div><div class="line">    &lt;span&gt;|&lt;/span&gt;</div><div class="line">    &lt;span&gt;社区&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>但是以上的代码丝毫没有语义化（div和span标记是html中语义化最低的标签），推荐的做法是使用ul和li标记，再通过合适的CSS样式来实现同样的效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;nav&quot;&gt;</div><div class="line">    &lt;li&gt;课程&lt;/li&gt;</div><div class="line">    &lt;li&gt;问答&lt;/li&gt;</div><div class="line">    &lt;li&gt;社区&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">.nav li&#123;</div><div class="line">    float: left;</div><div class="line">    list-style: none;</div><div class="line">    display: block;</div><div class="line">    margin: 0 5px;</div><div class="line">    border-right: 1px solid #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>&lt;a&gt;</code>标记要加上说明（title属性）。<br><code>&lt;h1&gt;</code>正文标题要使用<code>&lt;h1&gt;</code>标记，副标题要使用<code>&lt;h2&gt;</code>。 可以使用CSS样式进行显式风格的设置。切记：不重要的地方不要随便使用<code>&lt;h1&gt;</code>标记。<br><code>&lt;table&gt;</code>标记的优化。使用<code>&lt;caption&gt;</code>标记为表格指定标题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">    &lt;caption&gt;表格标题&lt;/caption&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;季度&lt;/th&gt;</div><div class="line">        &lt;th&gt;销售额&lt;/th&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;1&lt;/td&gt;</div><div class="line">        &lt;td&gt;33665.25&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;2&lt;/td&gt;</div><div class="line">        &lt;td&gt;21215.99&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<p>强调网页中的重要内容应该使用<code>&lt;strong&gt;</code>标记，避免使用<code>&lt;b&gt;</code>标记（对搜索引擎不友好）。<code>&lt;em&gt;</code>的权重仅次于<code>&lt;strong&gt;</code>。如果仅仅使显示的效果发生变化就使用<code>&lt;b&gt;</code>标记和<code>&lt;i&gt;</code>标记。</p>
-<blockquote>
-<p>Tips<br>1.将重要html代码放在最前面，广告等不重要的部分放在整个文档的最后，然后利用CSS样式控制广告div左右浮动。<br>2.重要内容不要使用js输出。<br>3.对于暂时不需要显示的元素应该使用z-index属性而不是display:none;这样的代码，因为Spider会过滤display属性为none的内容。</p>
-</blockquote>
-
-          
+<li>网页代码优化
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/31/浅谈前端中的SEO优化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1079,161 +1053,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/02/12/ES6-Promise应用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bunny">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WebNote">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/12/ES6-Promise应用/" itemprop="url">
-                  ES6--关于promise
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T11:21:43+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/12/ES6-Promise应用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/ES6-Promise应用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-加载图片"><a href="#1-加载图片" class="headerlink" title="1.加载图片"></a>1.加载图片</h2><p>我们可以将图片的加载写成一个Promise，一旦加载完成，Promise的状态就发生变化。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> preloadImage = <span class="function"><span class="keyword">function</span> (<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">    image.onload  = resolve;</div><div class="line">    image.onerror = reject;</div><div class="line">    image.src = path;</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<h2 id="2-Generator函数与Promise的结合"><a href="#2-Generator函数与Promise的结合" class="headerlink" title="2.Generator函数与Promise的结合"></a>2.Generator函数与Promise的结合</h2><p>使用Generator函数管理流程，遇到异步操作的时候，通常返回一个Promise对象</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/12/ES6-Promise应用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/02/12/ES6-关于promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1348,6 +1167,161 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/02/12/ES6-关于promise/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/02/12/ES6-Promise应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bunny">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WebNote">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/12/ES6-Promise应用/" itemprop="url">
+                  ES6--关于promise
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T11:21:43+08:00">
+                2017-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/12/ES6-Promise应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/ES6-Promise应用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-加载图片"><a href="#1-加载图片" class="headerlink" title="1.加载图片"></a>1.加载图片</h2><p>我们可以将图片的加载写成一个Promise，一旦加载完成，Promise的状态就发生变化。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> preloadImage = <span class="function"><span class="keyword">function</span> (<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">    image.onload  = resolve;</div><div class="line">    image.onerror = reject;</div><div class="line">    image.src = path;</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="2-Generator函数与Promise的结合"><a href="#2-Generator函数与Promise的结合" class="headerlink" title="2.Generator函数与Promise的结合"></a>2.Generator函数与Promise的结合</h2><p>使用Generator函数管理流程，遇到异步操作的时候，通常返回一个Promise对象</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/12/ES6-Promise应用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
