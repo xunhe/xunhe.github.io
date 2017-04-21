@@ -1,0 +1,849 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.字符串的扩展normalize()方法字符串实例的normalize方法，用来将字符的不同表示方法统一为同样的形式，这称为Unicode正规化1&apos;\u01D1&apos;.normalize() === &apos;\u004F\u030C&apos;.normalize()
+includes(),startWith(),endWith()
+includes()：返回布尔值，表示是否找到了参数字符串。
+startsWith">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6--方法的扩展">
+<meta property="og:url" content="https://xunhe.github.io/2017/04/13/ES6-字符串的扩展/index.html">
+<meta property="og:site_name" content="WebNote">
+<meta property="og:description" content="1.字符串的扩展normalize()方法字符串实例的normalize方法，用来将字符的不同表示方法统一为同样的形式，这称为Unicode正规化1&apos;\u01D1&apos;.normalize() === &apos;\u004F\u030C&apos;.normalize()
+includes(),startWith(),endWith()
+includes()：返回布尔值，表示是否找到了参数字符串。
+startsWith">
+<meta property="og:updated_time" content="2017-04-14T03:20:57.027Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6--方法的扩展">
+<meta name="twitter:description" content="1.字符串的扩展normalize()方法字符串实例的normalize方法，用来将字符的不同表示方法统一为同样的形式，这称为Unicode正规化1&apos;\u01D1&apos;.normalize() === &apos;\u004F\u030C&apos;.normalize()
+includes(),startWith(),endWith()
+includes()：返回布尔值，表示是否找到了参数字符串。
+startsWith">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xunhe.github.io/2017/04/13/ES6-字符串的扩展/"/>
+
+
+
+
+
+  <title> ES6--方法的扩展 | WebNote </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WebNote</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2017/04/13/ES6-字符串的扩展/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bunny">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WebNote">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6--方法的扩展
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T15:29:10+08:00">
+                2017-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/13/ES6-字符串的扩展/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/13/ES6-字符串的扩展/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-字符串的扩展"><a href="#1-字符串的扩展" class="headerlink" title="1.字符串的扩展"></a>1.字符串的扩展</h2><h3 id="normalize-方法"><a href="#normalize-方法" class="headerlink" title="normalize()方法"></a>normalize()方法</h3><p>字符串实例的normalize方法，用来将字符的不同表示方法统一为同样的形式，这称为Unicode正规化<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'\u01D1'</span>.normalize() === <span class="string">'\u004F\u030C'</span>.normalize()</div></pre></td></tr></table></figure></p>
+<h3 id="includes-startWith-endWith"><a href="#includes-startWith-endWith" class="headerlink" title="includes(),startWith(),endWith()"></a>includes(),startWith(),endWith()</h3><ul>
+<li>includes()：返回布尔值，表示是否找到了参数字符串。</li>
+<li>startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。</li>
+<li>endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">'Hello world!'</span>;</div><div class="line"></div><div class="line">s.startsWith(<span class="string">'Hello'</span>) <span class="comment">// true</span></div><div class="line">s.endsWith(<span class="string">'!'</span>) <span class="comment">// true</span></div><div class="line">s.includes(<span class="string">'o'</span>) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这三个方法都支持第二个参数，表示开始搜索的位置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">'Hello world!'</span>;</div><div class="line"></div><div class="line">s.startsWith(<span class="string">'world'</span>, <span class="number">6</span>) <span class="comment">// true</span></div><div class="line">s.endsWith(<span class="string">'Hello'</span>, <span class="number">5</span>) <span class="comment">// true</span></div><div class="line">s.includes(<span class="string">'Hello'</span>, <span class="number">6</span>) <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+<h3 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h3><p>repeat方法返回一个新字符串，表示将原字符串重复n次<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'x'</span>.repeat(<span class="number">3</span>) <span class="comment">// "xxx"</span></div><div class="line"><span class="string">'hello'</span>.repeat(<span class="number">2</span>) <span class="comment">// "hellohello"</span></div><div class="line"><span class="string">'na'</span>.repeat(<span class="number">0</span>) <span class="comment">// ""</span></div></pre></td></tr></table></figure></p>
+<p>如果是小数，将会被取整<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'na'</span>.repeat(<span class="number">2.9</span>) <span class="comment">// "nana"</span></div></pre></td></tr></table></figure></p>
+<p>如果repeat的参数是负数或者Infinity，会报错。但是，如果参数是0到-1之间的小数，则等同于0，这是因为会先进行取整运算。0到-1之间的小数，取整以后等于-0，repeat视同为0。NaN也等同于0，如果repeat的参数是字符串，则会先转换成数字</p>
+<h3 id="模版字符串"><a href="#模版字符串" class="headerlink" title="模版字符串"></a>模版字符串</h3><p>ES5中的字符串拼接<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#result'</span>).append(</div><div class="line">  <span class="string">'There are &lt;b&gt;'</span> + basket.count + <span class="string">'&lt;/b&gt; '</span> +</div><div class="line">  <span class="string">'items in your basket, '</span> +</div><div class="line">  <span class="string">'&lt;em&gt;'</span> + basket.onSale +</div><div class="line">  <span class="string">'&lt;/em&gt; are on sale!'</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>ES6中的模版字符串<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#result'</span>).append(<span class="string">`</span></div><div class="line">  There are &lt;b&gt;<span class="subst">$&#123;basket.count&#125;</span>&lt;/b&gt; items</div><div class="line">   in your basket, &lt;em&gt;<span class="subst">$&#123;basket.onSale&#125;</span>&lt;/em&gt;</div><div class="line">  are on sale!</div><div class="line">`);</div></pre></td></tr></table></figure></p>
+<p>模版字符串是增强版的字符串，用反引号标识，可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量</p>
+<p>如果在模版字符串中需要使用反引号，则需要用反斜杠转义</p>
+<p>模版字符串中嵌入变量，则需要把变量名卸载${}中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">authorize</span>(<span class="params">user, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!user.hasPrivilege(action)) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(</div><div class="line">      <span class="comment">// 传统写法为</span></div><div class="line">      <span class="comment">// 'User '</span></div><div class="line">      <span class="comment">// + user.name</span></div><div class="line">      <span class="comment">// + ' is not authorized to do '</span></div><div class="line">      <span class="comment">// + action</span></div><div class="line">      <span class="comment">// + '.'</span></div><div class="line">      <span class="string">`User <span class="subst">$&#123;user.name&#125;</span> is not authorized to do <span class="subst">$&#123;action&#125;</span>.`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果需要引用模版字符串本身，在需要的时候执行，则可以像下面这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//写法一</span></div><div class="line"><span class="keyword">let</span> str = <span class="string">'return `hello $&#123;name&#125;`'</span>;</div><div class="line"><span class="keyword">let</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'name'</span>,str);</div><div class="line">func(<span class="string">'Jack'</span>); <span class="comment">//hello Jack</span></div><div class="line"></div><div class="line"><span class="comment">//写法二</span></div><div class="line"><span class="keyword">let</span> str = <span class="string">'(name) =&gt; `hello $&#123;name&#125;`'</span>;</div><div class="line"><span class="keyword">let</span> func = <span class="built_in">eval</span>.call(<span class="literal">null</span>,str);</div><div class="line">func(<span class="string">'Jack'</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="2-数字扩展"><a href="#2-数字扩展" class="headerlink" title="2.数字扩展"></a>2.数字扩展</h2><h3 id="Number-isFinite-Number-isNaN"><a href="#Number-isFinite-Number-isNaN" class="headerlink" title="Number.isFinite() Number.isNaN()"></a>Number.isFinite() Number.isNaN()</h3><p>用来检查一个数值是否是有限的，用来检查一个值是不是NaN</p>
+<h3 id="Number-parseInt-Number-parseFloat"><a href="#Number-parseInt-Number-parseFloat" class="headerlink" title="Number.parseInt() Number.parseFloat()"></a>Number.parseInt() Number.parseFloat()</h3><h3 id="Number-isInteger"><a href="#Number-isInteger" class="headerlink" title="Number.isInteger()"></a>Number.isInteger()</h3><p>判断一个值是否为整数</p>
+<h3 id="Math对象的扩展"><a href="#Math对象的扩展" class="headerlink" title="Math对象的扩展"></a>Math对象的扩展</h3><h4 id="Math-trunc"><a href="#Math-trunc" class="headerlink" title="Math.trunc()"></a>Math.trunc()</h4><p>Math.trunc方法用于去除一个数的小数部分，返回整数部分。</p>
+<h4 id="Math-sign"><a href="#Math-sign" class="headerlink" title="Math.sign()"></a>Math.sign()</h4><p>Math.sign方法用来判断一个数到底是正数、负数、还是零。</p>
+<p>它会返回五种值。</p>
+<ul>
+<li>参数为正数，返回+1；</li>
+<li>参数为负数，返回-1；</li>
+<li>参数为0，返回0；</li>
+<li>参数为-0，返回-0;</li>
+<li>其他值，返回NaN。</li>
+</ul>
+<h2 id="3-数组扩展"><a href="#3-数组扩展" class="headerlink" title="3.数组扩展"></a>3.数组扩展</h2><h3 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h3><p>用于将两类对象转换成真正的数组</p>
+<ul>
+<li>类数组</li>
+<li>可遍历对象(ES6中新增的数据解构Set和Map)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arrLike = &#123;</div><div class="line">    <span class="string">'0'</span>:<span class="string">'a'</span>,</div><div class="line">    <span class="string">'1'</span>:<span class="string">'b'</span>,</div><div class="line">    length；<span class="number">2</span></div><div class="line">&#125;；</div><div class="line"><span class="comment">//ES5</span></div><div class="line"><span class="keyword">var</span> arr1 = [].slice.call(arrLike);</div><div class="line"><span class="comment">//ES6</span></div><div class="line"><span class="keyword">let</span> arr2 = <span class="built_in">Array</span>.from(arrLike);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>常见的类数组对象如NodeList,arguments等都可以转变成真正的数组<br>字符串也可以使用Array.from()方法</p>
+<p>扩展运算符(…)也可以将某些数据解构转变为数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//arguments对象</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> args = [...arguments];</div><div class="line">&#125;</div><div class="line"><span class="comment">//NodeList对象</span></div><div class="line">[...document.querySelector(<span class="string">'div'</span>)];</div></pre></td></tr></table></figure></p>
+<h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h3><p>用于将一组值，转换成数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.of(<span class="number">3</span>, <span class="number">11</span>, <span class="number">8</span>) <span class="comment">// [3,11,8]</span></div><div class="line"><span class="built_in">Array</span>.of(<span class="number">3</span>) <span class="comment">// [3]</span></div><div class="line"><span class="built_in">Array</span>.of(<span class="number">3</span>).length <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<p>跟Array构造函数的不同点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array() // []</div><div class="line">Array(3) // [, , ,]</div><div class="line">Array(3, 11, 8) // [3, 11, 8]</div></pre></td></tr></table></figure></p>
+<h3 id="数组实例的find-和findIndex-方法"><a href="#数组实例的find-和findIndex-方法" class="headerlink" title="数组实例的find()和findIndex()方法"></a>数组实例的find()和findIndex()方法</h3><p>数组实例的find方法，用于找出第一个符合条件的数组成员，有的话返回该成员，没有的话返回undefined<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>].find(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> value &gt; <span class="number">9</span>;</div><div class="line">&#125;) <span class="comment">// 10</span></div></pre></td></tr></table></figure></p>
+<p>数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>].findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> value &gt; <span class="number">9</span>;</div><div class="line">&#125;) <span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<p>这两个方法都可以接收第二个参数，用来绑定回调函数的this指向</p>
+<h3 id="数组实例的fill"><a href="#数组实例的fill" class="headerlink" title="数组实例的fill()"></a>数组实例的fill()</h3><p>fill方法使用给定值，填充一个数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].fill(<span class="number">7</span>)</div><div class="line"><span class="comment">// [7, 7, 7]</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>).fill(<span class="number">7</span>)</div><div class="line"><span class="comment">// [7, 7, 7]</span></div></pre></td></tr></table></figure></p>
+<p>fill方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].fill(<span class="number">7</span>, <span class="number">1</span>, <span class="number">2</span>)</div><div class="line"><span class="comment">// ['a', 7, 'c']</span></div></pre></td></tr></table></figure></p>
+<p>上面代码表示，fill方法从1号位开始，向原数组填充7，到2号位之前结束。</p>
+<h3 id="数组实例的includes"><a href="#数组实例的includes" class="headerlink" title="数组实例的includes()"></a>数组实例的includes()</h3><p>用于返回一个布尔值，表示数组是否包含给定的值，与字符串的includes方法类似，属于ES7<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>);     <span class="comment">// true</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">4</span>);     <span class="comment">// false</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="literal">NaN</span>].includes(<span class="literal">NaN</span>); <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<h2 id="4-函数的扩展"><a href="#4-函数的扩展" class="headerlink" title="4.函数的扩展"></a>4.函数的扩展</h2><h3 id="1-函数参数的默认值"><a href="#1-函数参数的默认值" class="headerlink" title="1.函数参数的默认值"></a>1.函数参数的默认值</h3><p>ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">x, y = <span class="string">'World'</span></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(x, y);</div><div class="line">&#125;</div><div class="line"></div><div class="line">log(<span class="string">'Hello'</span>) <span class="comment">// Hello World</span></div><div class="line">log(<span class="string">'Hello'</span>, <span class="string">'China'</span>) <span class="comment">// Hello China</span></div><div class="line">log(<span class="string">'Hello'</span>, <span class="string">''</span>) <span class="comment">// Hello</span></div></pre></td></tr></table></figure></p>
+<h4 id="函数的length属性"><a href="#函数的length属性" class="headerlink" title="函数的length属性"></a>函数的length属性</h4><p>指定了默认值以后，函数的length属性，将返回没有指定默认值的参数个数，制订了默认值后，length属性将失真<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;&#125;).length <span class="comment">// 1</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a = <span class="number">5</span></span>) </span>&#123;&#125;).length <span class="comment">// 0</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a, b, c = <span class="number">5</span></span>) </span>&#123;&#125;).length <span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<p>如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a = <span class="number">0</span>, b, c</span>) </span>&#123;&#125;).length <span class="comment">// 0</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a, b = <span class="number">1</span>, c</span>) </span>&#123;&#125;).length <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<h3 id="2-rest参数"><a href="#2-rest参数" class="headerlink" title="2.rest参数"></a>2.rest参数</h3><p>ES6中引入rest参数（形式为’…变量名’），用于获取函数的多于参数，这样就不需要arguments对象了，rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">...values</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> val <span class="keyword">of</span> values) &#123;</div><div class="line">    sum += val;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> sum;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(<span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>) <span class="comment">// 10</span></div></pre></td></tr></table></figure></p>
+<p>rest参数中的变量代表一个数组，可以使用数组的方法，rest参数之后不能再有其他参数<br>函数的length属性，不包含rest参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;&#125;).length  <span class="comment">// 1</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">...a</span>) </span>&#123;&#125;).length  <span class="comment">// 0</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a, ...b</span>) </span>&#123;&#125;).length  <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-扩展运算符"><a href="#3-扩展运算符" class="headerlink" title="3.扩展运算符"></a>3.扩展运算符</h3><h4 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h4><p>扩展运算符是三个点(…),它好比rest参数的逆运算，将一个数组转为用逗号分割的参数序列<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</div><div class="line"><span class="comment">// 1 2 3</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, ...[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], <span class="number">5</span>)</div><div class="line"><span class="comment">// 1 2 3 4 5</span></div><div class="line"></div><div class="line">[...document.querySelectorAll(<span class="string">'div'</span>)]</div><div class="line"><span class="comment">// [&lt;div&gt;, &lt;div&gt;, &lt;div&gt;]</span></div></pre></td></tr></table></figure></p>
+<p>该运算符用于函数调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">array, ...items</span>) </span>&#123;</div><div class="line">  array.push(...items);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">38</span>];</div><div class="line">add(...numbers) <span class="comment">// 42</span></div></pre></td></tr></table></figure></p>
+<h4 id="替代数组的apply方法"><a href="#替代数组的apply方法" class="headerlink" title="替代数组的apply方法"></a>替代数组的apply方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x,y,z</span>)</span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>];</div><div class="line">f(...args);</div><div class="line"></div><div class="line"></div><div class="line"><span class="built_in">Math</span>.max(...[<span class="number">14</span>, <span class="number">3</span>, <span class="number">77</span>])</div><div class="line"></div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="built_in">Math</span>.max(<span class="number">14</span>, <span class="number">3</span>, <span class="number">77</span>);</div></pre></td></tr></table></figure>
+<h4 id="扩展运算符的应用"><a href="#扩展运算符的应用" class="headerlink" title="扩展运算符的应用"></a>扩展运算符的应用</h4><p>1) 合并数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>,<span class="number">2</span>,...more];</div><div class="line">[...arr1,...arr2,...arr3];</div></pre></td></tr></table></figure></p>
+<p>2)与解构赋值相结合<br>扩展运算符可以和解构赋值结合起来，用于生成数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//ES5</div><div class="line">a = list[0],reset = list.slice(1);</div><div class="line">//ES6</div><div class="line">[a,...rest] = list;</div></pre></td></tr></table></figure></p>
+<p>3) 函数的返回值<br>如果需要返回多个值，可以使用扩展运算符</p>
+<p>4) 字符串<br>扩展运算符还可以将字符串转为真正的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[...&apos;hello&apos;] //[&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]</div></pre></td></tr></table></figure></p>
+<h3 id="4-name属性"><a href="#4-name属性" class="headerlink" title="4.name属性"></a>4.name属性</h3><p>函数的name属性，返回该函数的函数名<br>如果将一个匿名函数赋值给一个变量，ES5 的name属性，会返回空字符串，而 ES6 的name属性会返回实际的函数名。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"></div><div class="line"><span class="comment">// ES5</span></div><div class="line">f.name <span class="comment">// ""</span></div><div class="line"></div><div class="line"><span class="comment">// ES6</span></div><div class="line">f.name <span class="comment">// "f"</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-箭头函数"><a href="#5-箭头函数" class="headerlink" title="5.箭头函数"></a>5.箭头函数</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>ES6允许使用=&gt;定义函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</div><div class="line"><span class="comment">//上面的箭头函数等同于：</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> v;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">5</span>;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">5</span> &#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> num1 + num2;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getTempItem = <span class="function"><span class="params">id</span> =&gt;</span> (&#123; <span class="attr">id</span>: id, <span class="attr">name</span>: <span class="string">"Temp"</span> &#125;);</div></pre></td></tr></table></figure></p>
+<p>箭头函数可以和变量解构一起使用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> full = <span class="function">(<span class="params">&#123; first, last &#125;</span>) =&gt;</span> first + <span class="string">' '</span> + last;</div></pre></td></tr></table></figure></p>
+<p>使用rest参数与箭头函数结合的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> numbers = <span class="function">(<span class="params">...nums</span>) =&gt;</span> nums;</div><div class="line"></div><div class="line">numbers(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div><div class="line"><span class="comment">// [1,2,3,4,5]</span></div></pre></td></tr></table></figure></p>
+<p><strong>使用注意点</strong><br>（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象，而且是固定的，不可更改。<br>（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。<br>（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用Rest参数代替。<br>（4）箭头函数没有自己的this对象</p>
+<h3 id="6-绑定this"><a href="#6-绑定this" class="headerlink" title="6.绑定this"></a>6.绑定this</h3><p>ES7中可以使用::(双冒号)绑定this<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">foo::bar;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line">bar.bind(foo);</div><div class="line"></div><div class="line">foo::bar(...arguments);</div><div class="line"><span class="comment">// 等同于</span></div><div class="line">bar.apply(foo, <span class="built_in">arguments</span>);</div><div class="line"><span class="comment">//如果双冒号左边为空，右边是一个对象的方法，则等于将该方法绑定在该对象上面。</span></div><div class="line"><span class="keyword">var</span> method = obj::obj.foo;</div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="keyword">var</span> method = ::obj.foo;</div></pre></td></tr></table></figure></p>
+<h2 id="5-对象的扩展"><a href="#5-对象的扩展" class="headerlink" title="5. 对象的扩展"></a>5. 对象的扩展</h2><h3 id="属性简写"><a href="#属性简写" class="headerlink" title="属性简写"></a>属性简写</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="string">'111'</span>;</div><div class="line"><span class="keyword">var</span> baz = &#123;foo&#125;;</div><div class="line">baz <span class="comment">//&#123;foo:'111'&#125;</span></div></pre></td></tr></table></figure>
+<p>ES6允许在对象之中直接写变量，这时，属性名为变量名，属性值为变量的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;x,y&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>方法简写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">  method() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello!"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="方法的name属性"><a href="#方法的name属性" class="headerlink" title="方法的name属性"></a>方法的name属性</h3><p>函数的name属性，返回函数名，对象方法也是函数，因此也有name属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> person = &#123;</div><div class="line">    sayName()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'hello!'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">person.sayName.name;<span class="comment">//'sayName'</span></div></pre></td></tr></table></figure></p>
+<p>特殊情况<br>bind方法创造的函数，name属性返回bound加上原函数的名字，Function构造函数创造的函数，name属性返回anonymous<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="keyword">new</span> <span class="built_in">Function</span>()).name <span class="comment">// "anonymous"</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> doSomething = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;;</div><div class="line">doSomething.bind().name <span class="comment">// "bound doSomething"</span></div></pre></td></tr></table></figure></p>
+<h3 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h3><p>基本上和比较运算符===的行为一致<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.is(<span class="string">'foo'</span>,<span class="string">'foo'</span>);<span class="comment">//true</span></div><div class="line"><span class="built_in">Object</span>.is(&#123;&#125;,&#123;&#125;);<span class="comment">//false</span></div></pre></td></tr></table></figure></p>
+<p>与===不同之处有两个<br>+0不等于-0  NaN等于自身<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+<span class="number">0</span> === <span class="number">-0</span> <span class="comment">//true</span></div><div class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span> <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="built_in">Object</span>.is(+<span class="number">0</span>, <span class="number">-0</span>) <span class="comment">// false</span></div><div class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="literal">NaN</span>) <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<h3 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h3><p>用于对象的合并，将源对象的所有可枚举属性复制到目标对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> target = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> source1 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</div><div class="line"><span class="keyword">var</span> source2 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;;</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.assign(target, source1, source2);</div><div class="line">target <span class="comment">// &#123;a:1, b:2, c:3&#125;</span></div></pre></td></tr></table></figure></p>
+<p>如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性<br>如果参数不是对象，会线专程对象，然后返回<br>比如 2会转成Number对象2</p>
+<p>undefined和null无法转成对象，作为参数的时候会报错<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>(<span class="literal">true</span>) <span class="comment">// &#123;[[PrimitiveValue]]: true&#125;</span></div><div class="line"><span class="built_in">Object</span>(<span class="number">10</span>)  <span class="comment">//  &#123;[[PrimitiveValue]]: 10&#125;</span></div><div class="line"><span class="built_in">Object</span>(<span class="string">'abc'</span>) <span class="comment">// &#123;0: "a", 1: "b", 2: "c", length: 3, [[PrimitiveValue]]: "abc"&#125;</span></div></pre></td></tr></table></figure></p>
+<p>Object.assign拷贝的属性是有限制的，只拷贝源对象的自身可枚举属性，浅拷贝，拷贝的是对象的引用<br>可以用来处理数组，但是会把数组视为对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.assign([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>])</div><div class="line"><span class="comment">// [4, 5, 3]</span></div></pre></td></tr></table></figure></p>
+<h3 id="常见用途"><a href="#常见用途" class="headerlink" title="常见用途"></a>常见用途</h3><p>1) 为对象添加属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>()</span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(x,y)&#123;</div><div class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>,&#123;x,y&#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2)为对象添加方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.assign(S.prototype,&#123;</div><div class="line">    aa()&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">        &#125;,</div><div class="line">    bb()&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<p>3) 克隆对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.assign(&#123;&#125;,origin);</div></pre></td></tr></table></figure></p>
+<p>上面代码将原始对象拷贝到一个空对象，就得到了原始对象的克隆<br>如果需要克隆继承属性的值，下面可行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> pro = <span class="built_in">Object</span>.getPrototypeOf(origin);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.assign(<span class="built_in">Object</span>.create(pro),origin);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4) 合并对象，将多个对象合并到一个对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> merge = <span class="function">(<span class="params">target,...sources</span>)=&gt;</span> <span class="built_in">Object</span>.assign(target,...sources);</div></pre></td></tr></table></figure></p>
+<h3 id="属性的遍历"><a href="#属性的遍历" class="headerlink" title="属性的遍历"></a>属性的遍历</h3><p>ES6一共有5种方法可以遍历对象的属性,列举常用的三种<br>1) for…in…遍历自身和继承额可枚举属性<br>2) Object.keys() 返回一个数组，包括对象自身的(不含继承的)所有可枚举属性<br>3) Object.getOwnPropertyNames() 返回数组，包含对象自身的所有属性，包括不可枚举属性</p>
+<h3 id="Object-setPropertyOf-Object-getPropertyOf"><a href="#Object-setPropertyOf-Object-getPropertyOf" class="headerlink" title="Object.setPropertyOf() Object.getPropertyOf()"></a>Object.setPropertyOf() Object.getPropertyOf()</h3><p>Object.setPropertyOf()用来设置一个对象的prototype对象，返回参数对象本身<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.setPropertyOf(obj,prototype);</div></pre></td></tr></table></figure></p>
+<p>Object.getPropertyOf()用来获取一个对象的原型对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.getPropertyOf(obj);</div></pre></td></tr></table></figure></p>
+<h3 id="Object-keys-Object-values"><a href="#Object-keys-Object-values" class="headerlink" title="Object.keys() Object.values()"></a>Object.keys() Object.values()</h3><p>ES5 引入了Object.keys方法，返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键名。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">baz</span>: <span class="number">42</span> &#125;;</div><div class="line"><span class="built_in">Object</span>.keys(obj)</div><div class="line"><span class="comment">// ["foo", "baz"]</span></div></pre></td></tr></table></figure></p>
+<p>Object.values方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">baz</span>: <span class="number">42</span> &#125;;</div><div class="line"><span class="built_in">Object</span>.values(obj)</div><div class="line"><span class="comment">// ["bar", 42]</span></div></pre></td></tr></table></figure></p>
+<h2 id="6-Symbol"><a href="#6-Symbol" class="headerlink" title="6.Symbol"></a>6.Symbol</h2><p>原始数据类型Symbol，表示独一无二的值，通过Symbol函数生成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let s = Symbol();</div><div class="line">typeof s;//&apos;symbol&apos;</div></pre></td></tr></table></figure></p>
+<p>不能使用new命令，会报错<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s1 = <span class="built_in">Symbol</span>(<span class="string">'foo'</span>);</div><div class="line"><span class="keyword">var</span> s2 = <span class="built_in">Symbol</span>(<span class="string">'bar'</span>);</div><div class="line"></div><div class="line">s1 <span class="comment">// Symbol(foo)</span></div><div class="line">s2 <span class="comment">// Symbol(bar)</span></div><div class="line"></div><div class="line">s1.toString() <span class="comment">// "Symbol(foo)"</span></div><div class="line">s2.toString() <span class="comment">// "Symbol(bar)"</span></div></pre></td></tr></table></figure></p>
+<p>可以接收一个字符串参数，表示对Symbol实例的描述，主要是为了在控制台显示，或者转为字符串的时候，比较容易区分<br>如果 Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const obj = &#123;</div><div class="line">  toString() &#123;</div><div class="line">    return &apos;abc&apos;;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">const sym = Symbol(obj);</div><div class="line">sym // Symbol(abc)</div></pre></td></tr></table></figure></p>
+<p>Symbol函数的参数只是表示对当前Symbol值的描述，因此相同参数的Symbol函数的返回值是不相等的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 没有参数的情况</span></div><div class="line"><span class="keyword">var</span> s1 = <span class="built_in">Symbol</span>();</div><div class="line"><span class="keyword">var</span> s2 = <span class="built_in">Symbol</span>();</div><div class="line"></div><div class="line">s1 === s2 <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="comment">// 有参数的情况</span></div><div class="line"><span class="keyword">var</span> s1 = <span class="built_in">Symbol</span>(<span class="string">'foo'</span>);</div><div class="line"><span class="keyword">var</span> s2 = <span class="built_in">Symbol</span>(<span class="string">'foo'</span>);</div><div class="line"></div><div class="line">s1 === s2 <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+<p>Symbol值不能与其他类型的值进行运算，会报错<br>可以转换成字符串或者布尔值，但是不能转成数值</p>
+<h3 id="作为对象的属性名"><a href="#作为对象的属性名" class="headerlink" title="作为对象的属性名"></a>作为对象的属性名</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mySymbol = <span class="built_in">Symbol</span>();</div><div class="line"></div><div class="line"><span class="comment">// 第一种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line">a[mySymbol] = <span class="string">'Hello!'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 第二种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;</div><div class="line">  [mySymbol]: <span class="string">'Hello!'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 第三种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a, mySymbol, &#123; <span class="attr">value</span>: <span class="string">'Hello!'</span> &#125;);</div><div class="line"></div><div class="line"><span class="comment">// 以上写法都得到同样结果</span></div><div class="line">a[mySymbol] <span class="comment">// "Hello!"</span></div></pre></td></tr></table></figure>
+<p>注意，Symbol值作为对象属性名时，不能用点运算符。<br>同理，在对象的内部，使用Symbol值定义属性时，必须放在方括号内</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/13/ES6-数据类型的扩展/" rel="next" title="ES6--方法的扩展">
+                <i class="fa fa-chevron-left"></i> ES6--方法的扩展
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/14/ES6-关于promise/" rel="prev" title="ES6--关于promise">
+                ES6--关于promise <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/13/ES6-字符串的扩展/"
+           data-title="ES6--方法的扩展" data-url="https://xunhe.github.io/2017/04/13/ES6-字符串的扩展/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="bunny" />
+          <p class="site-author-name" itemprop="name">bunny</p>
+           
+              <p class="site-description motion-element" itemprop="description">do more,talk less.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xunhe" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-字符串的扩展"><span class="nav-number">1.</span> <span class="nav-text">1.字符串的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#normalize-方法"><span class="nav-number">1.1.</span> <span class="nav-text">normalize()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#includes-startWith-endWith"><span class="nav-number">1.2.</span> <span class="nav-text">includes(),startWith(),endWith()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat"><span class="nav-number">1.3.</span> <span class="nav-text">repeat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模版字符串"><span class="nav-number">1.4.</span> <span class="nav-text">模版字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数字扩展"><span class="nav-number">2.</span> <span class="nav-text">2.数字扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-isFinite-Number-isNaN"><span class="nav-number">2.1.</span> <span class="nav-text">Number.isFinite() Number.isNaN()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-parseInt-Number-parseFloat"><span class="nav-number">2.2.</span> <span class="nav-text">Number.parseInt() Number.parseFloat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-isInteger"><span class="nav-number">2.3.</span> <span class="nav-text">Number.isInteger()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math对象的扩展"><span class="nav-number">2.4.</span> <span class="nav-text">Math对象的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-trunc"><span class="nav-number">2.4.1.</span> <span class="nav-text">Math.trunc()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-sign"><span class="nav-number">2.4.2.</span> <span class="nav-text">Math.sign()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数组扩展"><span class="nav-number">3.</span> <span class="nav-text">3.数组扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-from"><span class="nav-number">3.1.</span> <span class="nav-text">Array.from()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-of"><span class="nav-number">3.2.</span> <span class="nav-text">Array.of()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组实例的find-和findIndex-方法"><span class="nav-number">3.3.</span> <span class="nav-text">数组实例的find()和findIndex()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组实例的fill"><span class="nav-number">3.4.</span> <span class="nav-text">数组实例的fill()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组实例的includes"><span class="nav-number">3.5.</span> <span class="nav-text">数组实例的includes()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-函数的扩展"><span class="nav-number">4.</span> <span class="nav-text">4.函数的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-函数参数的默认值"><span class="nav-number">4.1.</span> <span class="nav-text">1.函数参数的默认值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的length属性"><span class="nav-number">4.1.1.</span> <span class="nav-text">函数的length属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-rest参数"><span class="nav-number">4.2.</span> <span class="nav-text">2.rest参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-扩展运算符"><span class="nav-number">4.3.</span> <span class="nav-text">3.扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#含义"><span class="nav-number">4.3.1.</span> <span class="nav-text">含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替代数组的apply方法"><span class="nav-number">4.3.2.</span> <span class="nav-text">替代数组的apply方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展运算符的应用"><span class="nav-number">4.3.3.</span> <span class="nav-text">扩展运算符的应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-name属性"><span class="nav-number">4.4.</span> <span class="nav-text">4.name属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-箭头函数"><span class="nav-number">4.5.</span> <span class="nav-text">5.箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本用法"><span class="nav-number">4.5.1.</span> <span class="nav-text">基本用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-绑定this"><span class="nav-number">4.6.</span> <span class="nav-text">6.绑定this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-对象的扩展"><span class="nav-number">5.</span> <span class="nav-text">5. 对象的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性简写"><span class="nav-number">5.1.</span> <span class="nav-text">属性简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的name属性"><span class="nav-number">5.2.</span> <span class="nav-text">方法的name属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-is"><span class="nav-number">5.3.</span> <span class="nav-text">Object.is()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-assign"><span class="nav-number">5.4.</span> <span class="nav-text">Object.assign()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见用途"><span class="nav-number">5.5.</span> <span class="nav-text">常见用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性的遍历"><span class="nav-number">5.6.</span> <span class="nav-text">属性的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-setPropertyOf-Object-getPropertyOf"><span class="nav-number">5.7.</span> <span class="nav-text">Object.setPropertyOf() Object.getPropertyOf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-keys-Object-values"><span class="nav-number">5.8.</span> <span class="nav-text">Object.keys() Object.values()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Symbol"><span class="nav-number">6.</span> <span class="nav-text">6.Symbol</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作为对象的属性名"><span class="nav-number">6.1.</span> <span class="nav-text">作为对象的属性名</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bunny</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hadzuki"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
