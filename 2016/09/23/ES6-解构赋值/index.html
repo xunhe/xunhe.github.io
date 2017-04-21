@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="解构赋值," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1. 数组的解构赋值ES6按照一定模式，从数组和对象中提取值，对变量进行赋值，这被成为解构赋值用法：123456789let [a,b,c] = [1,2,3];let [,,third] = [&quot;foo&quot;,&quot;bar&quot;,&quot;baz&quot;];third //&quot;baz&quot;let[head,...tail] = [1,2,3,4];tail //[2,3,4]let [x,y,...z] = [&apos;a&apos;];x /">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6--解构赋值">
+<meta property="og:url" content="https://xunhe.github.io/2016/09/23/ES6-解构赋值/index.html">
+<meta property="og:site_name" content="WebNote">
+<meta property="og:description" content="1. 数组的解构赋值ES6按照一定模式，从数组和对象中提取值，对变量进行赋值，这被成为解构赋值用法：123456789let [a,b,c] = [1,2,3];let [,,third] = [&quot;foo&quot;,&quot;bar&quot;,&quot;baz&quot;];third //&quot;baz&quot;let[head,...tail] = [1,2,3,4];tail //[2,3,4]let [x,y,...z] = [&apos;a&apos;];x /">
+<meta property="og:updated_time" content="2017-04-21T10:40:52.337Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6--解构赋值">
+<meta name="twitter:description" content="1. 数组的解构赋值ES6按照一定模式，从数组和对象中提取值，对变量进行赋值，这被成为解构赋值用法：123456789let [a,b,c] = [1,2,3];let [,,third] = [&quot;foo&quot;,&quot;bar&quot;,&quot;baz&quot;];third //&quot;baz&quot;let[head,...tail] = [1,2,3,4];tail //[2,3,4]let [x,y,...z] = [&apos;a&apos;];x /">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xunhe.github.io/2016/09/23/ES6-解构赋值/"/>
+
+
+
+
+
+  <title> ES6--解构赋值 | WebNote </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WebNote</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://xunhe.github.io/2016/09/23/ES6-解构赋值/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bunny">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WebNote">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6--解构赋值
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-23T12:33:43+08:00">
+                2016-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6学习/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/23/ES6-解构赋值/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/ES6-解构赋值/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-数组的解构赋值"><a href="#1-数组的解构赋值" class="headerlink" title="1. 数组的解构赋值"></a>1. 数组的解构赋值</h2><p>ES6按照一定模式，从数组和对象中提取值，对变量进行赋值，这被成为解构赋值<br>用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">let</span> [,,third] = [<span class="string">"foo"</span>,<span class="string">"bar"</span>,<span class="string">"baz"</span>];</div><div class="line">third <span class="comment">//"baz"</span></div><div class="line"><span class="keyword">let</span>[head,...tail] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">tail <span class="comment">//[2,3,4]</span></div><div class="line"><span class="keyword">let</span> [x,y,...z] = [<span class="string">'a'</span>];</div><div class="line">x <span class="comment">//'a'</span></div><div class="line">y <span class="comment">//undefined</span></div><div class="line">z <span class="comment">//[]</span></div></pre></td></tr></table></figure></p>
+<p>解构不成功，变量的值就是undefined<br>如果等号右边不是数组（或者严格的说不是可遍历的结构，就会报错）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [foo] = <span class="number">1</span>;<span class="comment">//报错</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>解构赋值允许指定默认值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [foo=<span class="number">1</span>,bar] = [<span class="literal">null</span>,<span class="number">1</span>];</div><div class="line">foo <span class="comment">//null </span></div><div class="line">bar <span class="comment">//1</span></div></pre></td></tr></table></figure></p>
+<p>注意：给定数组当前位置没有值，也就是数组成员===undefined，会使用默认值，但是如果当前位置的值是null，就会生效<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [x=<span class="number">1</span>] = [<span class="literal">undefined</span>];</div><div class="line">x <span class="comment">//1</span></div><div class="line"><span class="keyword">let</span> [y=<span class="number">1</span>] = [<span class="literal">null</span>];</div><div class="line">y <span class="comment">//null</span></div></pre></td></tr></table></figure></p>
+<p>如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> [x=f()] = [<span class="number">2</span>];</div></pre></td></tr></table></figure></p>
+<p>上面代码中，因为x能取到值，所以函数f根本不会执行<br>默认值可以引用结构赋值的其他变量，但该变量必须已经声明<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [x=<span class="number">1</span>,y=x] = [<span class="number">2</span>];</div><div class="line"><span class="comment">//x=2,y=2</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-对象的解构赋值"><a href="#2-对象的解构赋值" class="headerlink" title="2.对象的解构赋值"></a>2.对象的解构赋值</h2><p>解构不仅可以用于数组，还可以用于对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123;foo,bar&#125; = &#123;<span class="attr">foo</span>:<span class="string">'aaa'</span>,<span class="attr">bar</span>:<span class="string">'bbb'</span>&#125;;</div><div class="line">foo <span class="comment">//'aaa'</span></div><div class="line">bar <span class="comment">//'bbb'</span></div></pre></td></tr></table></figure></p>
+<p>对象的解构和数组哟一个重要的不同，数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123;baz&#125; = &#123;<span class="attr">foo</span>:<span class="string">'aaa'</span>,<span class="attr">bar</span>:<span class="string">'bbb'</span>&#125;;</div><div class="line">baz <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
+<p>上面的例子中变量没有对应的同名属性，取不到值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> &#123;<span class="attr">foo</span>:baz&#125; = &#123;<span class="attr">foo</span>:<span class="string">'aaa'</span>,<span class="attr">bar</span>:<span class="string">'bbb'</span>&#125;;</div><div class="line">baz <span class="comment">//'aaa'</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> obj=&#123;</div><div class="line">    <span class="attr">one</span>:<span class="string">'hello'</span>,</div><div class="line">    <span class="attr">two</span>:<span class="string">'world'</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> &#123;<span class="attr">one</span>:f,<span class="attr">two</span>:l&#125; = obj;</div><div class="line">f <span class="comment">//'hello'</span></div><div class="line">l <span class="comment">//'world'</span></div></pre></td></tr></table></figure></p>
+<p>对象解构的内部机制，是先找到同名属性，然后再赋值给相应的变量，真正被赋值的是后者，而不是前者<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123; <span class="attr">foo</span>: baz &#125; = &#123; <span class="attr">foo</span>: <span class="string">"aaa"</span>, <span class="attr">bar</span>: <span class="string">"bbb"</span> &#125;;</div><div class="line">baz <span class="comment">// "aaa"</span></div><div class="line">foo <span class="comment">// error: foo is not defined</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，foo是匹配的模式，bar才是变量，真正被赋值的是变量baz，而不是foo</p>
+<p>注意：采用这种写法时，变量的声明和赋值是一起的，对于let和const来说，变量不能重新声明，所以一旦赋值的变量以前被声明过，就会报错</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> foo;</div><div class="line"><span class="keyword">let</span> &#123;foo&#125; = &#123;<span class="attr">foo</span>: <span class="number">1</span>&#125;; <span class="comment">// SyntaxError: Duplicate declaration "foo"</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> foo;</div><div class="line">(&#123;foo&#125; = &#123;<span class="attr">foo</span>: <span class="number">1</span>&#125;); <span class="comment">// 成功</span></div></pre></td></tr></table></figure>
+<p>上面代码中，let命令下面一行的圆括号是必须的，否则会报错，因为解析器会将起首的大括号，理解成一个代码块而不是赋值语句</p>
+<p>对象的解构也可以指定默认值，默认生效的条件是，对象的属性值严格等于undefined</p>
+<h2 id="3-字符串的解构赋值"><a href="#3-字符串的解构赋值" class="headerlink" title="3.字符串的解构赋值"></a>3.字符串的解构赋值</h2><p>字符串也可以解构赋值，这是因为字符串会转换成一个类似数组的对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> [a,b,c,d,e] = <span class="string">'hello'</span>;</div><div class="line">a <span class="comment">//'h'</span></div></pre></td></tr></table></figure></p>
+<p>类似数组的对象都有一个length属性，因此还可以对这个属性进行解构赋值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123;<span class="attr">length</span>:len&#125; = <span class="string">'hello'</span>;</div><div class="line">len <span class="comment">//5</span></div></pre></td></tr></table></figure></p>
+<h2 id="4-数值和布尔值的解构赋值"><a href="#4-数值和布尔值的解构赋值" class="headerlink" title="4.数值和布尔值的解构赋值"></a>4.数值和布尔值的解构赋值</h2><p>解构赋值时，如果等号右边是数值和布尔值，则先会转换成对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123;<span class="attr">toString</span>:s&#125; = <span class="number">123</span>;</div><div class="line">s===<span class="built_in">Number</span>.prototype.toString;<span class="comment">//true</span></div><div class="line">(&#123;<span class="attr">toString</span>:s&#125; = <span class="literal">true</span>);</div><div class="line">s===<span class="built_in">Boolean</span>.prototype.toString;<span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<h2 id="5-函数的解构赋值"><a href="#5-函数的解构赋值" class="headerlink" title="5.函数的解构赋值"></a>5.函数的解构赋值</h2><p>函数的参数也可以使用解构赋值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">[x,y]</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x+y;</div><div class="line">&#125;</div><div class="line">add([<span class="number">1</span>,<span class="number">2</span>]);<span class="comment">//3</span></div></pre></td></tr></table></figure></p>
+<p>函数的参数表面上是一个数组，但在传入参数的时候，数组的参数就被解构成变量x和y，对于函数内部来说，就是变量x和y<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]].map(<span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b;</div><div class="line">&#125;);</div><div class="line"><span class="comment">//[3,7]</span></div></pre></td></tr></table></figure></p>
+<p>函数的解构也可以使用默认值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">&#123;x=<span class="number">0</span>,y=<span class="number">0</span>&#125;=&#123;&#125;</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> [x,y];</div><div class="line">&#125;</div><div class="line">move(&#123;<span class="attr">x</span>:<span class="number">3</span>,<span class="attr">y</span>:<span class="number">8</span>&#125;); <span class="comment">//[3,8]</span></div><div class="line">move(&#123;&#125;); <span class="comment">//[0,0]</span></div><div class="line">move(); <span class="comment">//[0,0]</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，move的参数是一个对象，通过对这个对象进行解构，得到变量x和y的值，如果解构失败，就使用默认值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">&#123;x, y&#125; = &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> [x, y];</div><div class="line">&#125;</div><div class="line"></div><div class="line">move(&#123;<span class="attr">x</span>: <span class="number">3</span>, <span class="attr">y</span>: <span class="number">8</span>&#125;); <span class="comment">// [3, 8]</span></div><div class="line">move(&#123;<span class="attr">x</span>: <span class="number">3</span>&#125;); <span class="comment">// [3, undefined]</span></div><div class="line">move(&#123;&#125;); <span class="comment">// [undefined, undefined]</span></div><div class="line">move(); <span class="comment">// [0, 0]</span></div></pre></td></tr></table></figure></p>
+<p>上面代码是为函数的move参数指定默认值，而不是给x和y指定默认值，所以会得到不同的结果</p>
+<p>undefined就会触发函数参数的默认值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="literal">undefined</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">x = <span class="string">'yes'</span></span>) =&gt;</span> x); <span class="comment">// [1,'yes',3]</span></div></pre></td></tr></table></figure></p>
+<h2 id="6-圆括号问题"><a href="#6-圆括号问题" class="headerlink" title="6.圆括号问题"></a>6.圆括号问题</h2><p>ES6中，只要有可能导致解构的歧义，就不能使用圆括号</p>
+<p><strong>不能使用圆括号的情况</strong><br>以下三种解构赋值不得使用圆括号<br>1) 变量声明中不使用圆括号<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全部报错</span></div><div class="line"><span class="keyword">let</span> [(a)] = [<span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="keyword">let</span> &#123;<span class="attr">x</span>: (c)&#125; = &#123;&#125;;</div><div class="line"><span class="keyword">let</span> (&#123;<span class="attr">x</span>: c&#125;) = &#123;&#125;;</div><div class="line"><span class="keyword">let</span> &#123;(x: c)&#125; = &#123;&#125;;</div><div class="line"><span class="keyword">let</span> &#123;(x): c&#125; = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">let</span> &#123; <span class="attr">o</span>: (&#123; <span class="attr">p</span>: p &#125;) &#125; = &#123; <span class="attr">o</span>: &#123; <span class="attr">p</span>: <span class="number">2</span> &#125; &#125;;</div></pre></td></tr></table></figure></p>
+<p>2) 函数参数中，不能带有圆括号<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">[(z</span>)]) </span>&#123; <span class="keyword">return</span> z; &#125;</div></pre></td></tr></table></figure></p>
+<p>函数参数也属于变量声明</p>
+<p>3) 赋值语句中，不能将整个模式，或嵌套模式中的一层，放在圆括号之中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全部报错</span></div><div class="line">(&#123; <span class="attr">p</span>: a &#125;) = &#123; <span class="attr">p</span>: <span class="number">42</span> &#125;;</div><div class="line">([a]) = [<span class="number">5</span>];</div></pre></td></tr></table></figure></p>
+<p>上面代码将整个模式放入圆括号中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 报错</span></div><div class="line">[(&#123; <span class="attr">p</span>: a &#125;), &#123; <span class="attr">x</span>: c &#125;] = [&#123;&#125;, &#123;&#125;];</div></pre></td></tr></table></figure></p>
+<p>上面代码将嵌套模式的一层，放在圆括号之中，导致报错。</p>
+<p><strong>可以使用圆括号的情况</strong><br>赋值语句的非模式部分，可以使用圆括号<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[(b)] = [<span class="number">3</span>]; <span class="comment">// 正确</span></div><div class="line">(&#123; <span class="attr">p</span>: (d) &#125; = &#123;&#125;); <span class="comment">// 正确 模式是p</span></div><div class="line">[(<span class="built_in">parseInt</span>.prop)] = [<span class="number">3</span>]; <span class="comment">// 正确</span></div></pre></td></tr></table></figure></p>
+<h2 id="7-用途"><a href="#7-用途" class="headerlink" title="7.用途"></a>7.用途</h2><p>1) 交换变量的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x=<span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> y=<span class="number">2</span>;</div><div class="line">[x,y] = [y,x];</div></pre></td></tr></table></figure></p>
+<p>2) 从函数返回多个值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 返回一个数组</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> [a, b, c] = example();</div><div class="line"><span class="comment">// 返回一个对象</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">foo</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">bar</span>: <span class="number">2</span></div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> &#123; foo, bar &#125; = example();</div></pre></td></tr></table></figure></p>
+<p>3) 函数参数的定义<br>解构赋值可以方便的将一组参数与变量名对应起来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//参数是一组有次序的值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">[z,y,z]</span>)</span>&#123;...&#125;</div><div class="line">f([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</div><div class="line"></div><div class="line"><span class="comment">// 参数是一组无次序的值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">&#123;x, y, z&#125;</span>) </span>&#123; ... &#125;</div><div class="line">f(&#123;<span class="attr">z</span>: <span class="number">3</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">x</span>: <span class="number">1</span>&#125;);</div></pre></td></tr></table></figure></p>
+<p>4) 提取JSON数据<br>解构赋值对提取JSON对象中的数据，尤其有用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> jsonData = &#123;</div><div class="line">    <span class="attr">id</span>:<span class="number">42</span>,</div><div class="line">    <span class="attr">status</span>:<span class="string">'OK'</span>,</div><div class="line">    <span class="attr">data</span>:[<span class="number">876</span>,<span class="number">123</span>]</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> &#123;id,status,data&#125; = jsonData;</div></pre></td></tr></table></figure></p>
+<p>5) 函数参数的默认值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">jQuery.ajax = <span class="function"><span class="keyword">function</span> (<span class="params">url, &#123;</span></span></div><div class="line">  async = true,</div><div class="line">  beforeSend = function () &#123;&#125;,</div><div class="line">  cache = <span class="literal">true</span>,</div><div class="line">  complete = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">  crossDomain = <span class="literal">false</span>,</div><div class="line">  global = <span class="literal">true</span>,</div><div class="line">  <span class="comment">// ... more config</span></div><div class="line">&#125;) &#123;</div><div class="line">  <span class="comment">// ... do stuff</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>指定参数的默认值，就避免了在函数体内部再写var foo = config.foo || ‘default foo’;这样的语句。</p>
+<p>6) 遍历Map结构<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">map.set(<span class="string">'first'</span>, <span class="string">'hello'</span>);</div><div class="line">map.set(<span class="string">'second'</span>, <span class="string">'world'</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</div><div class="line">  <span class="built_in">console</span>.log(key + <span class="string">" is "</span> + value);</div><div class="line">&#125;</div><div class="line"><span class="comment">// first is hello</span></div><div class="line"><span class="comment">// second is world</span></div><div class="line"></div><div class="line"><span class="comment">// 获取键名</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key] <span class="keyword">of</span> map) &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 获取键值</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [,value] <span class="keyword">of</span> map) &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>7) 输入模块的指定方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const &#123; SourceMapConsumer, SourceNode &#125; = require(&quot;source-map&quot;);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/解构赋值/" rel="tag"># 解构赋值</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/20/ES6--let和const命令/" rel="next" title="ES6笔记--- const和let">
+                <i class="fa fa-chevron-left"></i> ES6笔记--- const和let
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/25/ES6-数据类型的扩展/" rel="prev" title="ES6--方法的扩展">
+                ES6--方法的扩展 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/23/ES6-解构赋值/"
+           data-title="ES6--解构赋值" data-url="https://xunhe.github.io/2016/09/23/ES6-解构赋值/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="bunny" />
+          <p class="site-author-name" itemprop="name">bunny</p>
+           
+              <p class="site-description motion-element" itemprop="description">do more,talk less.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xunhe" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数组的解构赋值"><span class="nav-number">1.</span> <span class="nav-text">1. 数组的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对象的解构赋值"><span class="nav-number">2.</span> <span class="nav-text">2.对象的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-字符串的解构赋值"><span class="nav-number">3.</span> <span class="nav-text">3.字符串的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数值和布尔值的解构赋值"><span class="nav-number">4.</span> <span class="nav-text">4.数值和布尔值的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-函数的解构赋值"><span class="nav-number">5.</span> <span class="nav-text">5.函数的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-圆括号问题"><span class="nav-number">6.</span> <span class="nav-text">6.圆括号问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-用途"><span class="nav-number">7.</span> <span class="nav-text">7.用途</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bunny</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hadzuki"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
